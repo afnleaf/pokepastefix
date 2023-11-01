@@ -16,9 +16,5 @@
       "matches": ["https://pokepast.es/*"],
       "js": ["content.js"]
     }
-  ],
-  "action": {
-      "default_title": "pokepastefix",
-      "default_popup": "popup.html"
-  }
+  ]
 }
