@@ -19,12 +19,21 @@
         pokemons.forEach(pokemon => {
             // get pokemon name by splitting before @ and removing space character on end
             var pokemon_name = pokemon.innerText.split("@")[0].slice(0, -1);
+
+            // check if there is (F) or (M) in the nickname
+            const genderRegex = /\(F\)|\(M\)/g;
+            const hasGender = genderRegex.test(pokemon_name);
+            if (hasGender) {
+                pokemon_name = pokemon_name.replace(genderRegex, "").slice(0, -1);
+            }
+            
             // check if the pokemon has a nickname
             const hasBothParentheses = pokemon_name.includes("(") && pokemon_name.includes(")");
             if (hasBothParentheses) {
                 pokemon_name = pokemon_name.match(/\(([^)]+)\)/g)[0]
                 pokemon_name = pokemon_name.substring(1, pokemon_name.length - 1);
             }
+            
             // check if pokemon is in the dictionary
             if (pokemon_name in replacements) {
                 const imgElement = pokemon.querySelector('.img-pokemon');
