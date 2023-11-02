@@ -11,7 +11,7 @@
     });
 
 
-    // function that replaces the image sources
+    // function that checks each pokemon in the team list
     const newTeamLoaded = (replacements) => {
         // get all articles that contain a pokemon
         const pokemons = document.querySelectorAll("article");
@@ -37,10 +37,31 @@
             // check if pokemon is in the dictionary
             if (pokemon_name in replacements) {
                 const imgElement = pokemon.querySelector('.img-pokemon');
-                imgElement.src = replacements[pokemon_name];
+                //imgElement.src = replacements[pokemon_name];
+                replaceImage(imgElement, replacements[pokemon_name], pokemon_name);
             }
         });
     }
 
+    // function that replaces the image sources
+    const replaceImage = (imgElement, imageUrl, pokemon_name) => {
+        const img = new Image();
+        img.src = imageUrl;
+
+        img.onload = function() {
+            // The image loaded successfully
+            imgElement.src = imageUrl;
+        };
+
+        img.onerror = function() {
+            // An error occurred while loading the image (e.g., 403 Forbidden)
+            console.error('Image failed to load: ' + imageUrl);
+            // load in redundancy from images folder
+            imgElement.src = "images/${pokemon_name}.png"
+        };
+    }
+
 
 })();
+
+
