@@ -3,7 +3,7 @@
     chrome.runtime.onMessage.addListener((obj, sender, response) => {
         //const {type, value, teamId, replacements} = obj;
         const {type, replacements} = obj;
-        console.log(replacements);
+
         if (type === "NEW") {
             //currentTeam = teamId;
             newTeamLoaded(obj.replacements);
@@ -19,9 +19,8 @@
         pokemons.forEach(pokemon => {
             // get first line
             var first_line = pokemon.innerText.split("\n")[0];
-            //console.log(`first_line: ${first_line}`);
-            
             var pokemon_name = first_line.trim();
+
             // check if item exists
             if (first_line.includes("@")) {
                 // get pokemon name by splitting before @ and removing space character on end
@@ -42,10 +41,8 @@
                 pokemon_name = pokemon_name.substring(1, pokemon_name.length - 1);
             }
             
-            console.log(`--${pokemon_name}--`);
             // check if pokemon is in the dictionary
             if (pokemon_name in replacements) {
-                console.log(`-${pokemon_name}-`);
                 const imgElement = pokemon.querySelector('.img-pokemon');
                 //imgElement.src = replacements[pokemon_name];
                 replaceImage(imgElement, replacements[pokemon_name], pokemon_name);
