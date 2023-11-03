@@ -3,7 +3,7 @@
     chrome.runtime.onMessage.addListener((obj, sender, response) => {
         //const {type, value, teamId, replacements} = obj;
         const {type, replacements} = obj;
-
+        console.log(replacements);
         if (type === "NEW") {
             //currentTeam = teamId;
             newTeamLoaded(obj.replacements);
@@ -17,8 +17,16 @@
         const pokemons = document.querySelectorAll("article");
         // loop through all the pokemon
         pokemons.forEach(pokemon => {
-            // get pokemon name by splitting before @ and removing space character on end
-            var pokemon_name = pokemon.innerText.split("@")[0].slice(0, -1);
+            // get first line
+            var first_line = pokemon.innerText.split("\n")[0];
+            //console.log(`first_line: ${first_line}`);
+            
+            var pokemon_name = first_line.trim();
+            // check if item exists
+            if (first_line.includes("@")) {
+                // get pokemon name by splitting before @ and removing space character on end
+                pokemon_name = first_line.split("@")[0].slice(0, -1);
+            }
 
             // check if there is (F) or (M) in the nickname
             const genderRegex = /\(F\)|\(M\)/g;
@@ -34,8 +42,10 @@
                 pokemon_name = pokemon_name.substring(1, pokemon_name.length - 1);
             }
             
+            console.log(`--${pokemon_name}--`);
             // check if pokemon is in the dictionary
             if (pokemon_name in replacements) {
+                console.log(`-${pokemon_name}-`);
                 const imgElement = pokemon.querySelector('.img-pokemon');
                 //imgElement.src = replacements[pokemon_name];
                 replaceImage(imgElement, replacements[pokemon_name], pokemon_name);
@@ -57,7 +67,9 @@
             // An error occurred while loading the image (e.g., 403 Forbidden)
             console.error('Image failed to load: ' + imageUrl);
             // load in redundancy from images folder
-            imgElement.src = "images/${pokemon_name}.png"
+            //imgElement.src = "images/${pokemon_name}.png"
+            var localImgURL = chrome.extension.getURL(`images/${pokemon_name}.png`);
+            imgElement.src = localImgUrl;
         };
     }
 
