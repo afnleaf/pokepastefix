@@ -1,6 +1,6 @@
   {
   "name": "pokepastefix",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "manifest_version": 3,
   "description": "Fix missing pictures on pokepaste.",
   "permissions": [
