@@ -65,7 +65,8 @@
             console.error('Image failed to load: ' + imageUrl);
             // load in redundancy from images folder
             //imgElement.src = "images/${pokemon_name}.png"
-            var localImgURL = chrome.extension.getURL(`images/${pokemon_name}.png`);
+            var localImgUrl = chrome.extension.getURL(`images/${pokemon_name}.png`);
+            //var localImgUrl = chrome.runtime.getURL(`./images/${pokemon_name}.png`);
             imgElement.src = localImgUrl;
         };
     }

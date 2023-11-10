@@ -15,5 +15,11 @@
       "matches": ["https://pokepast.es/*"],
       "js": ["content.js"]
     }
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": ["https://pokepast.es/*"],
+      "resources": ["/images/*"]
+    }
   ]
 }
