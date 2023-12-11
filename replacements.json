@@ -1,32 +1,91 @@
-{
-    "Poltchageist": "https://archives.bulbagarden.net/media/upload/3/39/1012Poltchageist.png",
-    "Sinistcha": "https://archives.bulbagarden.net/media/upload/9/98/HOME1013.png",
-    "Sinistcha-Masterpiece": "https://archives.bulbagarden.net/media/upload/9/98/HOME1013.png",
-    "Ursaluna-Bloodmoon": "https://archives.bulbagarden.net/media/upload/8/82/HOME0901B.png",
-    "Okidogi": "https://archives.bulbagarden.net/media/upload/7/73/1014Okidogi.png",
-    "Munkidori": "https://archives.bulbagarden.net/media/upload/e/e1/1015Munkidori.png",
-    "Fezandipiti": "https://archives.bulbagarden.net/media/upload/c/cb/1016Fezandipiti.png",
-    "Ogerpon": "https://archives.bulbagarden.net/media/upload/a/a5/1017Ogerpon.png",
-    "Ogerpon-Cornerstone": "https://archives.bulbagarden.net/media/upload/c/cd/HOME1017C.png",
-    "Ogerpon-Hearthflame": "https://archives.bulbagarden.net/media/upload/e/eb/HOME1017H.png",
-    "Ogerpon-Wellspring": "https://archives.bulbagarden.net/media/upload/9/92/HOME1017W.png",
-    "Growlithe-Hisui": "https://archives.bulbagarden.net/media/upload/3/3b/0058Growlithe-Hisui.png",
-    "Arcanine-Hisui": "https://archives.bulbagarden.net/media/upload/7/79/0059Arcanine-Hisui.png",
-    "Voltorb-Hisui": "https://archives.bulbagarden.net/media/upload/f/fc/0100Voltorb-Hisui.png",
-    "Electrode-Hisui": "https://archives.bulbagarden.net/media/upload/b/be/0101Electrode-Hisui.png",
-    "Typhlosion-Hisui": "https://archives.bulbagarden.net/media/upload/7/7c/0157Typhlosion-Hisui.png",
-    "Qwilfish-Hisui": "https://archives.bulbagarden.net/media/upload/a/a5/0211Qwilfish-Hisui.png",
-    "Overqwil-Hisui": "https://archives.bulbagarden.net/media/upload/0/02/0904Overqwil.png",
-    "Sneasel-Hisui": "https://archives.bulbagarden.net/media/upload/9/90/0215Sneasel-Hisui.png",
-    "Samurott-Hisui": "https://archives.bulbagarden.net/media/upload/2/2e/0503Samurott-Hisui.png",
-    "Lilligant-Hisui": "https://archives.bulbagarden.net/media/upload/4/4c/0549Lilligant-Hisui.png",
-    "Zorua-Hisui": "https://archives.bulbagarden.net/media/upload/e/e9/0570Zorua-Hisui.png",
-    "Zoroark-Hisui": "https://archives.bulbagarden.net/media/upload/b/b2/0571Zoroark-Hisui.png",
-    "Braviary-Hisui": "https://archives.bulbagarden.net/media/upload/e/e8/0628Braviary-Hisui.png",
-    "Sliggoo-Hisui": "https://archives.bulbagarden.net/media/upload/4/4b/0705Sliggoo-Hisui.png",
-    "Goodra-Hisui": "https://archives.bulbagarden.net/media/upload/b/b9/0706Goodra-Hisui.png",
-    "Avalugg-Hisui": "https://archives.bulbagarden.net/media/upload/e/ef/0713Avalugg-Hisui.png",
-    "Decidueye-Hisui": "https://archives.bulbagarden.net/media/upload/3/33/0724Decidueye-Hisui.png"
+{   "bulbagarden": {
+        "Poltchageist": "https://archives.bulbagarden.net/media/upload/3/39/1012Poltchageist.png",
+        "Sinistcha": "https://archives.bulbagarden.net/media/upload/9/98/HOME1013.png",
+        "Sinistcha-Masterpiece": "https://archives.bulbagarden.net/media/upload/9/98/HOME1013.png",
+        "Ursaluna-Bloodmoon": "https://archives.bulbagarden.net/media/upload/8/82/HOME0901B.png",
+        "Okidogi": "https://archives.bulbagarden.net/media/upload/7/73/1014Okidogi.png",
+        "Munkidori": "https://archives.bulbagarden.net/media/upload/e/e1/1015Munkidori.png",
+        "Fezandipiti": "https://archives.bulbagarden.net/media/upload/c/cb/1016Fezandipiti.png",
+        "Ogerpon": "https://archives.bulbagarden.net/media/upload/a/a5/1017Ogerpon.png",
+        "Ogerpon-Cornerstone": "https://archives.bulbagarden.net/media/upload/c/cd/HOME1017C.png",
+        "Ogerpon-Hearthflame": "https://archives.bulbagarden.net/media/upload/e/eb/HOME1017H.png",
+        "Ogerpon-Wellspring": "https://archives.bulbagarden.net/media/upload/9/92/HOME1017W.png",
+        "Growlithe-Hisui": "https://archives.bulbagarden.net/media/upload/3/3b/0058Growlithe-Hisui.png",
+        "Arcanine-Hisui": "https://archives.bulbagarden.net/media/upload/7/79/0059Arcanine-Hisui.png",
+        "Voltorb-Hisui": "https://archives.bulbagarden.net/media/upload/f/fc/0100Voltorb-Hisui.png",
+        "Electrode-Hisui": "https://archives.bulbagarden.net/media/upload/b/be/0101Electrode-Hisui.png",
+        "Typhlosion-Hisui": "https://archives.bulbagarden.net/media/upload/7/7c/0157Typhlosion-Hisui.png",
+        "Qwilfish-Hisui": "https://archives.bulbagarden.net/media/upload/a/a5/0211Qwilfish-Hisui.png",
+        "Overqwil": "https://archives.bulbagarden.net/media/upload/0/02/0904Overqwil.png",
+        "Sneasel-Hisui": "https://archives.bulbagarden.net/media/upload/9/90/0215Sneasel-Hisui.png",
+        "Samurott-Hisui": "https://archives.bulbagarden.net/media/upload/2/2e/0503Samurott-Hisui.png",
+        "Lilligant-Hisui": "https://archives.bulbagarden.net/media/upload/4/4c/0549Lilligant-Hisui.png",
+        "Zorua-Hisui": "https://archives.bulbagarden.net/media/upload/e/e9/0570Zorua-Hisui.png",
+        "Zoroark-Hisui": "https://archives.bulbagarden.net/media/upload/b/b2/0571Zoroark-Hisui.png",
+        "Braviary-Hisui": "https://archives.bulbagarden.net/media/upload/e/e8/0628Braviary-Hisui.png",
+        "Sliggoo-Hisui": "https://archives.bulbagarden.net/media/upload/4/4b/0705Sliggoo-Hisui.png",
+        "Goodra-Hisui": "https://archives.bulbagarden.net/media/upload/b/b9/0706Goodra-Hisui.png",
+        "Avalugg-Hisui": "https://archives.bulbagarden.net/media/upload/e/ef/0713Avalugg-Hisui.png",
+        "Decidueye-Hisui": "https://archives.bulbagarden.net/media/upload/3/33/0724Decidueye-Hisui.png"
+    },
+    "postimage": {
+        "Poltchageist": "https://i.postimg.cc/HkXBkZSv/Poltchageist.png",
+        "Sinistcha": "https://i.postimg.cc/nz0dtXdH/Sinistcha.png",
+        "Sinistcha-Masterpiece": "https://i.postimg.cc/nz0dtXdH/Sinistcha.png",
+        "Ursaluna-Bloodmoon": "https://i.postimg.cc/nzR1P6zr/Ursaluna-Bloodmoon.png",
+        "Okidogi": "https://i.postimg.cc/YS78G6Zr/Okidogi.png",
+        "Munkidori": "https://i.postimg.cc/bNGmKN1h/Munkidori.png",
+        "Fezandipiti": "https://i.postimg.cc/855RMtHS/Fezandipiti.png",
+        "Ogerpon": "https://i.postimg.cc/02LVxRCJ/Ogerpon.png",
+        "Ogerpon-Cornerstone": "https://i.postimg.cc/GpP7q7GT/Ogerpon-Cornerstone.png",
+        "Ogerpon-Hearthflame": "https://i.postimg.cc/K8MsgvYN/Ogerpon-Hearthflame.png",
+        "Ogerpon-Wellspring": "https://i.postimg.cc/TPvNjMLX/Ogerpon-Wellspring.png",
+        "Growlithe-Hisui": "https://i.postimg.cc/qB1FP5Y8/Growlithe-Hisui.png",
+        "Arcanine-Hisui": "https://i.postimg.cc/htW168SL/Arcanine-Hisui.png",
+        "Voltorb-Hisui": "https://i.postimg.cc/JhQxbyCb/Voltorb-Hisui.png",
+        "Electrode-Hisui": "https://i.postimg.cc/52BSVH0Z/Electrode-Hisui.png",
+        "Typhlosion-Hisui": "https://i.postimg.cc/cH4mTsdP/Typhlosion-Hisui.png",
+        "Qwilfish-Hisui": "https://i.postimg.cc/j5s89H4g/Qwilfish-Hisui.png",
+        "Overqwil": "https://i.postimg.cc/X7hzJynq/Overqwil-Hisui.png",
+        "Sneasel-Hisui": "https://i.postimg.cc/XN12HyGL/Sneasel-Hisui.png",
+        "Samurott-Hisui": "https://i.postimg.cc/HnNBVfDR/Samurott-Hisui.png",
+        "Lilligant-Hisui": "https://i.postimg.cc/VL5hmFQ2/Lilligant-Hisui.png",
+        "Zorua-Hisui": "https://i.postimg.cc/15NKv7ZR/Zorua-Hisui.png",
+        "Zoroark-Hisui": "https://i.postimg.cc/qqWxky2d/Zoroark-Hisui.png",
+        "Braviary-Hisui": "https://i.postimg.cc/5yXmdnY3/Braviary-Hisui.png",
+        "Sliggoo-Hisui": "https://i.postimg.cc/yxxL6750/Sliggoo-Hisui.png",
+        "Goodra-Hisui": "https://i.postimg.cc/CKJCRWb7/Goodra-Hisui.png",
+        "Avalugg-Hisui": "https://i.postimg.cc/h4YrbW63/Avalugg-Hisui.png",
+        "Decidueye-Hisui": "https://i.postimg.cc/KYmrvZ34/Decidueye-Hisui.png"
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -42,10 +42,10 @@
             }
             
             // check if pokemon is in the dictionary
-            if (pokemon_name in replacements) {
+            if (pokemon_name in replacements["postimage"]) {
                 const imgElement = pokemon.querySelector('.img-pokemon');
                 //imgElement.src = replacements[pokemon_name];
-                replaceImage(imgElement, replacements[pokemon_name], pokemon_name);
+                replaceImage(imgElement, replacements["postimage"][pokemon_name], pokemon_name);
             }
         });
     }
@@ -63,11 +63,15 @@
         img.onerror = function() {
             // An error occurred while loading the image (e.g., 403 Forbidden)
             console.error('Image failed to load: ' + imageUrl);
-            // load in redundancy from images folder
+            // load in redundancy from images folder NOT WORKING
             //imgElement.src = "images/${pokemon_name}.png"
-            var localImgUrl = chrome.extension.getURL(`images/${pokemon_name}.png`);
+            //var localImgUrl = chrome.extension.getURL(`images/${pokemon_name}.png`);
             //var localImgUrl = chrome.runtime.getURL(`./images/${pokemon_name}.png`);
-            imgElement.src = localImgUrl;
+            //var localImgUrl = repl
+            //imgElement.src = localImgUrl;
+
+            // load in redundancy from bublagarden.
+            replaceImage(imgElement, replacements["bulbagarden"][pokemon_name], pokemon_name);
         };
     }
 
