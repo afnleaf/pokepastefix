@@ -3,32 +3,47 @@ pokepast.es is missing images for some of the newest pokemon
 this chrome extension replaces them
 
 ## images added
-- Poltchageist
-- Sinistcha
-- Ursaluna-Bloodmoon
-- Okidogi
-- Munkidori
+- Arcanine-Hisui
+- Archaludon
+- Avalugg-Hisui
+- Braviary-Hisui
+- Decidueye-Hisui
+- Electrode-Hisui
 - Fezandipiti
-- Ogerpon
+- Goodra-Hisui
+- Gouging Fire
+- Greninja-Ash
+- Growlithe-Hisui
+- Hydrapple
+- Iron Boulder
+- Iron Crown
+- Iron Leaves
+- Lilligant-Hisui
+- Munkidori
 - Ogerpon-Cornerstone
 - Ogerpon-Hearthflame
 - Ogerpon-Wellspring
-- Growlithe-Hisui
-- Arcanine-Hisui
-- Voltorb-Hisui
-- Electrode-Hisui
-- Typhlosion-Hisui
-- Qwilfish-Hisui
+- Ogerpon
+- Okidogi
 - Overqwil-Hisui
-- Sneasel-Hisui
+- Poltchageist
+- Qwilfish-Hisui
+- Raging Bolt
 - Samurott-Hisui
-- Lilligant-Hisui
-- Zorua-Hisui
-- Zoroark-Hisui
-- Braviary-Hisui
+- Sinistcha
+- Sirfetchd
 - Sliggoo-Hisui
-- Goodra-Hisui
-- Avalugg-Hisui
-- Decidueye-Hisui
+- Sneasel-Hisui
+- Terapagos-Stellar
+- Terapagos-Terastal
+- Terapagos
+- Typhlosion-Hisui
+- Ursaluna-Bloodmoon
+- Voltorb-Hisui
+- Walking Wake
+- Zoroark-Hisui
+- Zorua-Hisui
+- Zygarde-10%
+- Zygarde-Complete
 
 
