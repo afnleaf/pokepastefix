@@ -1,6 +1,7 @@
 (() => {
     // when new tab is loaded this should run
     chrome.runtime.onMessage.addListener((obj, sender, response) => {
+    //browser.runtime.onMessage.addListener((obj, sender, response) => {
         //const {type, value, teamId, replacements} = obj;
         const {type, replacements} = obj;
 
@@ -22,7 +23,7 @@
             var pokemon_name = first_line.trim();
 
             // check if item exists
-            if (first_line.includes("@")) {
+            if(first_line.includes("@")) {
                 // get pokemon name by splitting before @ and removing space character on end
                 pokemon_name = first_line.split("@")[0].slice(0, -1);
             }
@@ -30,22 +31,22 @@
             // check if there is (F) or (M) in the nickname
             const genderRegex = /\(F\)|\(M\)/g;
             const hasGender = genderRegex.test(pokemon_name);
-            if (hasGender) {
+            if(hasGender) {
                 pokemon_name = pokemon_name.replace(genderRegex, "").slice(0, -1);
             }
             
             // check if the pokemon has a nickname
             const hasBothParentheses = pokemon_name.includes("(") && pokemon_name.includes(")");
-            if (hasBothParentheses) {
+            if(hasBothParentheses) {
                 pokemon_name = pokemon_name.match(/\(([^)]+)\)/g)[0]
                 pokemon_name = pokemon_name.substring(1, pokemon_name.length - 1);
             }
             
             // check if pokemon is in the dictionary
-            if (pokemon_name in replacements["postimage"]) {
+            pokemon_name = pokemon_name.toUpperCase();
+            if(pokemon_name in replacements) {
                 const imgElement = pokemon.querySelector('.img-pokemon');
-                //imgElement.src = replacements[pokemon_name];
-                replaceImage(imgElement, replacements["postimage"][pokemon_name], pokemon_name);
+                replaceImage(imgElement, replacements[pokemon_name], pokemon_name);
             }
         });
     }
@@ -71,7 +72,7 @@
             //imgElement.src = localImgUrl;
 
             // load in redundancy from bublagarden.
-            replaceImage(imgElement, replacements["bulbagarden"][pokemon_name], pokemon_name);
+            //replaceImage(imgElement, replacements["bulbagarden"][pokemon_name], pokemon_name);
         };
     }
 
