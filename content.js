@@ -44,9 +44,9 @@
             
             // check if pokemon is in the dictionary
             pokemon_name = pokemon_name.toUpperCase();
-            if(pokemon_name in replacements) {
+            if(pokemon_name in replacements["main"]) {
                 const imgElement = pokemon.querySelector('.img-pokemon');
-                replaceImage(imgElement, replacements[pokemon_name], pokemon_name);
+                replaceImage(imgElement, replacements["main"][pokemon_name], pokemon_name);
             }
         });
     }
@@ -72,7 +72,7 @@
             //imgElement.src = localImgUrl;
 
             // load in redundancy from bublagarden.
-            //replaceImage(imgElement, replacements["bulbagarden"][pokemon_name], pokemon_name);
+            replaceImage(imgElement, replacements["backup"][pokemon_name], pokemon_name);
         };
     }
 
