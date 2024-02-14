@@ -1,49 +1,69 @@
 # pokepastefix
 pokepast.es is missing images for some of the newest pokemon
-this chrome extension replaces them
+this web extension replaces them.
 
-## images added
-- Arcanine-Hisui
-- Archaludon
-- Avalugg-Hisui
-- Braviary-Hisui
-- Decidueye-Hisui
-- Electrode-Hisui
-- Fezandipiti
-- Goodra-Hisui
-- Gouging Fire
-- Greninja-Ash
-- Growlithe-Hisui
-- Hydrapple
-- Iron Boulder
-- Iron Crown
-- Iron Leaves
-- Lilligant-Hisui
-- Munkidori
-- Ogerpon-Cornerstone
-- Ogerpon-Hearthflame
-- Ogerpon-Wellspring
-- Ogerpon
-- Okidogi
-- Overqwil-Hisui
-- Poltchageist
-- Qwilfish-Hisui
-- Raging Bolt
-- Samurott-Hisui
-- Sinistcha
-- Sirfetchd
-- Sliggoo-Hisui
-- Sneasel-Hisui
-- Terapagos-Stellar
-- Terapagos-Terastal
-- Terapagos
-- Typhlosion-Hisui
-- Ursaluna-Bloodmoon
-- Voltorb-Hisui
-- Walking Wake
-- Zoroark-Hisui
-- Zorua-Hisui
-- Zygarde-10%
-- Zygarde-Complete
+## Images added
 
-
+```
+POLTCHAGEIST
+SINISTCHA
+SINISTCHA-MASTERPIECE
+URSALUNA-BLOODMOON
+OKIDOGI
+MUNKIDORI
+FEZANDIPITI
+OGERPON
+OGERPON-CORNERSTONE
+OGERPON-HEARTHFLAME
+OGERPON-WELLSPRING
+GROWLITHE-HISUI
+ARCANINE-HISUI
+VOLTORB-HISUI
+ELECTRODE-HISUI
+TYPHLOSION-HISUI
+QWILFISH-HISUI
+OVERQWIL
+SNEASEL-HISUI
+SAMUROTT-HISUI
+LILLIGANT-HISUI
+ZORUA-HISUI
+ZOROARK-HISUI
+BRAVIARY-HISUI
+SLIGGOO-HISUI
+GOODRA-HISUI
+AVALUGG-HISUI
+DECIDUEYE-HISUI
+ARCHALUDON
+HYDRAPPLE
+IRON BOULDER
+IRON CROWN
+RAGING BOLT
+GOUGING FIRE
+TERAPAGOS
+TERAPAGOS-TERASTAL
+TERAPAGOS-STELLAR
+WALKING WAKE
+IRON LEAVES
+SIRFETCH’D
+ZYGARDE-10%
+ZYGARDE-COMPLETE 
+GRENINJA-ASH
+GRENINJA-BOND
+PECHARUNT
+ARCEUS-BUG
+ARCEUS-DARK
+ARCEUS-DRAGON
+ARCEUS-ELECTRIC
+ARCEUS-FAIRY
+ARCEUS-FIGHTING
+ARCEUS-FIRE
+ARCEUS-FLYING
+ARCEUS-GHOST
+ARCEUS-GRASS
+ARCEUS-GROUND
+ARCEUS-ICE
+ARCEUS-POISON
+ARCEUS-PSYCHIC
+ARCEUS-ROCK
+ARCEUS-STEEL
+```
