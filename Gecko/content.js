@@ -60,7 +60,10 @@ const replacements = {
         "ARCEUS-POISON": "https://i.postimg.cc/28FKypbX/Arceus-Poison.png",
         "ARCEUS-PSYCHIC": "https://i.postimg.cc/YqwPt29W/Arceus-Psychic.png",
         "ARCEUS-ROCK": "https://i.postimg.cc/CxcrCj4G/Arceus-Rock.png",
-        "ARCEUS-STEEL": "https://i.postimg.cc/fbFHpDpk/Arceus-Steel.png"
+        "ARCEUS-STEEL": "https://i.postimg.cc/fbFHpDpk/Arceus-Steel.png",
+        "CORNERSTONE MASK OGERPON": "https://i.postimg.cc/GpP7q7GT/Ogerpon-Cornerstone.png",
+        "HEARTHFLAME MASK OGERPON": "https://i.postimg.cc/K8MsgvYN/Ogerpon-Hearthflame.png",
+        "WELLSPRING MASK OGERPON": "https://i.postimg.cc/TPvNjMLX/Ogerpon-Wellspring.png"
     },
     "backup": {
         "POLTCHAGEIST": "https://i.postimg.cc/x8TVcZkQ/Poltchageist.png",
