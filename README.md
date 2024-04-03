@@ -1,6 +1,10 @@
 # pokepastefix
-pokepast.es is missing images for some of the newest pokemon
-this web extension replaces them.
+[pokepast.es](https://pokepast.es/) is missing images for some of the newest pokemon, this web extension replaces them.
+
+## Install
+[Chrome](https://chromewebstore.google.com/detail/pokepastefix/ekceaboabpgkgbpigacngnjagcdhdkmn)
+
+[Firefox](https://addons.mozilla.org/en-US/firefox/addon/pokepastefix/)
 
 ## Images added
 
