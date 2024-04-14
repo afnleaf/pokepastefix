@@ -65,7 +65,9 @@ const replacements = {
         "HEARTHFLAME MASK OGERPON": "https://i.postimg.cc/K8MsgvYN/Ogerpon-Hearthflame.png",
         "WELLSPRING MASK OGERPON": "https://i.postimg.cc/TPvNjMLX/Ogerpon-Wellspring.png",
         "DIALGA-ORIGIN": "https://i.postimg.cc/6QkwKwbj/Dialga-Origin.png",
-        "PALKIA-ORIGIN": "https://i.postimg.cc/63CK5SD9/Palkia-Origin.png"
+        "PALKIA-ORIGIN": "https://i.postimg.cc/63CK5SD9/Palkia-Origin.png",
+        "ORIGIN FORME DIALGA": "https://i.postimg.cc/6QkwKwbj/Dialga-Origin.png",
+        "ORIGIN FORME PALKIA": "https://i.postimg.cc/63CK5SD9/Palkia-Origin.png"
     },
     "backup": {
         "POLTCHAGEIST": "https://i.postimg.cc/x8TVcZkQ/Poltchageist.png",
