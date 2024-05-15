@@ -97,10 +97,12 @@ chrome.storage.sync.get({
     // defaults
     imageQuality: 0,
     replaceAll: 0
-}, (options) => {
+}).then((options) => {
     // run script using option values
-    console.log('Retrieved options:', options);
+    //console.log('Retrieved options:', options);
     main(options.imageQuality, options.replaceAll);
+}).catch((error) => {
+    console.error('Error retrieving options:', error);
 });
 
 // encode as route

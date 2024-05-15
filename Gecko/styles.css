@@ -1,0 +1,35 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 100px;
+    height: 120px;
+    font-size: 14px;
+    padding: 5px;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+select {
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    border: 2px solid #cccccc;
+    border-radius: 5px;
+}
+
+select:hover {
+    border-color: #aaaaaa;
+}
+
+option {
+    padding: 5px;
+}

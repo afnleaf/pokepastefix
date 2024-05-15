@@ -1,5 +1,5 @@
 function saveOptions(imageQuality, replaceAll) {
-    chrome.storage.sync.set({
+    browser.storage.sync.set({
         // defaults
         imageQuality: imageQuality,
         replaceAll: replaceAll
@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const imageQualitySelect = document.getElementById('imageQuality');
     const replaceAllSelect = document.getElementById('replaceAll');
 
-    // retrieve options from chrome storage
-    chrome.storage.sync.get({
+    // retrieve options from browser storage
+    browser.storage.sync.get({
         // defaults
         imageQuality: 0,
         replaceAll: 0
