@@ -6,9 +6,6 @@
   "permissions": [
     "storage"
   ],
-  "background": {
-    "service_worker": "background.js"
-  },
   "content_scripts": [
     {
       "matches": ["https://pokepast.es/*"],
@@ -17,5 +14,8 @@
   ],
   "action": {
     "default_popup": "popup.html"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
   }
 }

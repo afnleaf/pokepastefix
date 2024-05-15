@@ -92,19 +92,15 @@ const badnames = {
     "origin forme palkia": "palkia-origin"
 };
 
-console.log("test");
-
-// Retrieve options from Chrome storage
+// retrieve options from chrome storage
 chrome.storage.sync.get({
     // defaults
     imageQuality: 0,
     replaceAll: 0
-}, function(options) {
-// Use the retrieved options (items.imageQuality and items.replaceAll)
+}, (options) => {
+    // run script using option values
     console.log('Retrieved options:', options);
-    const imageQuality = options.imageQuality;
-    const replaceAll = options.replaceAll;
-    main(imageQuality, replaceAll);
+    main(options.imageQuality, options.replaceAll);
 });
 
 // encode as route
