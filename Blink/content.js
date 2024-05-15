@@ -92,6 +92,21 @@ const badnames = {
     "origin forme palkia": "palkia-origin"
 };
 
+console.log("test");
+
+// Retrieve options from Chrome storage
+chrome.storage.sync.get({
+    // defaults
+    imageQuality: 0,
+    replaceAll: 0
+}, function(options) {
+// Use the retrieved options (items.imageQuality and items.replaceAll)
+    console.log('Retrieved options:', options);
+    const imageQuality = options.imageQuality;
+    const replaceAll = options.replaceAll;
+    main(imageQuality, replaceAll);
+});
+
 // encode as route
 function encodeName(pokemon_name) {
     let route = pokemon_name;
@@ -108,10 +123,10 @@ function encodeName(pokemon_name) {
 }
 
 // function that replaces the image sources
-function replaceImage(imgElement, pokemon_name) {
+function replaceImage(q, imgElement, pokemon_name) {
     const img = new Image();
     let route = encodeName(pokemon_name);
-    const imageUrl = `https://chiy.uk/${route}`;
+    const imageUrl = `https://chiy.uk/${q}/${route}`;
     img.src = imageUrl;
     img.onload = function() {
         // the image loaded successfully
@@ -123,41 +138,65 @@ function replaceImage(imgElement, pokemon_name) {
     };
 }
 
-// get all articles that contain a pokemon
-const pokemons = document.querySelectorAll("article");
-// loop through all the pokemon
-pokemons.forEach(pokemon => {
-    // get first line
-    var first_line = pokemon.innerText.split("\n")[0];
-    var pokemon_name = first_line.trim();
-    // check if item exists
-    if(first_line.includes("@")) {
-        // get pokemon name by splitting before @ and removing space character on end
-        pokemon_name = first_line.split("@")[0].slice(0, -1);
-    }
-    // check if there is (F) or (M) in the nickname
-    const genderRegex = /\(F\)|\(M\)/g;
-    const hasGender = genderRegex.test(pokemon_name);
-    if(hasGender) {
-        pokemon_name = pokemon_name.replace(genderRegex, "").slice(0, -1);
-    }
-    // check if the pokemon has a nickname
-    const hasBothParentheses = pokemon_name.includes("(") && pokemon_name.includes(")");
-    if(hasBothParentheses) {
-        pokemon_name = pokemon_name.match(/\(([^)]+)\)/g)[0]
-        pokemon_name = pokemon_name.substring(1, pokemon_name.length - 1);
-    }
-    // check if pokemon is in the dictionary
-    pokemon_name = pokemon_name.toLowerCase();
-    // check for weird names
-    if(pokemon_name in badnames) {
-        pokemon_name = badnames[pokemon_name];
-    }
-    console.log(pokemon_name);
-    if(replacements.includes(pokemon_name)) {
-        console.log(pokemon_name);
-        const imgElement = pokemon.querySelector('.img-pokemon');
-        replaceImage(imgElement, pokemon_name);
-    }
-});
+function replacePokemon(q, pokemon, pokemon_name) {
+    const imgElement = pokemon.querySelector('.img-pokemon');
+    replaceImage(q, imgElement, pokemon_name);
+}
 
+function main(imageQuality, replaceAll) {
+    // set imageQuality based on option
+    let q = "256"; 
+    switch(imageQuality) {
+        case 0:
+            q = "256";
+            break;
+        case 1:
+            q = "1024";
+            break;
+        case 2:
+            q = "full"; 
+            break;
+        default:
+            q = "256"    
+    }
+    // get all articles that contain a pokemon
+    const pokemons = document.querySelectorAll("article");
+    // loop through all the pokemon
+    pokemons.forEach(pokemon => {
+        // get first line
+        var first_line = pokemon.innerText.split("\n")[0];
+        var pokemon_name = first_line.trim();
+        // check if item exists
+        if(first_line.includes("@")) {
+            // get pokemon name by splitting before @ and removing space character on end
+            pokemon_name = first_line.split("@")[0].slice(0, -1);
+        }
+        // check if there is (F) or (M) in the nickname
+        const genderRegex = /\(F\)|\(M\)/g;
+        const hasGender = genderRegex.test(pokemon_name);
+        if(hasGender) {
+            pokemon_name = pokemon_name.replace(genderRegex, "").slice(0, -1);
+        }
+        // check if the pokemon has a nickname
+        const hasBothParentheses = pokemon_name.includes("(") && pokemon_name.includes(")");
+        if(hasBothParentheses) {
+            pokemon_name = pokemon_name.match(/\(([^)]+)\)/g)[0]
+            pokemon_name = pokemon_name.substring(1, pokemon_name.length - 1);
+        }
+        // check if pokemon is in the dictionary
+        pokemon_name = pokemon_name.toLowerCase();
+        // check for weird names
+        if(pokemon_name in badnames) {
+            pokemon_name = badnames[pokemon_name];
+        }
+        // depends on replaceAll option
+        //console.log(pokemon_name);
+        if(replaceAll) {
+            replacePokemon(q, pokemon, pokemon_name);
+        } else {
+            if(replacements.includes(pokemon_name)) {
+                replacePokemon(q, pokemon, pokemon_name);
+            }
+        }
+    });
+}

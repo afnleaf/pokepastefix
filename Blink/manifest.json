@@ -1,12 +1,21 @@
 {
   "name": "pokepastefix",
-  "version": "1",
+  "version": "1.0.0",
   "manifest_version": 3,
   "description": "Fix missing pictures on pokepaste.",
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
       "matches": ["https://pokepast.es/*"],
       "js": ["content.js"]
     }
-  ]
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
 }
