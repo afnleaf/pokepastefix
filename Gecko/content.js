@@ -61,6 +61,7 @@ const replacements = [
     "arceus-psychic",
     "arceus-rock",
     "arceus-steel",
+    "arceus-water",
     "dialga-origin",
     "palkia-origin",
 ];
