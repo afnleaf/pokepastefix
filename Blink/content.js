@@ -101,6 +101,7 @@ const items = {
     "lustrous globe": "https://www.serebii.net/itemdex/sprites/sv/lustrousglobe.png",
     "adamant crystal": "https://www.serebii.net/itemdex/sprites/sv/adamantcrystal.png",
     "griseous core": "https://www.serebii.net/itemdex/sprites/sv/griseouscore.png",
+    "custap berry": "https://www.serebii.net/itemdex/sprites/sv/custapberry.png",
 };
 
 // encode as route

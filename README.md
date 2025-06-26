@@ -6,6 +6,13 @@
 
 [Firefox](https://addons.mozilla.org/en-US/firefox/addon/pokepastefix/)
 
+## ToDo
+- [] shiny art
+- [] april fools art
+- [] CAP art
+- [] name colors
+
+
 ## Images added
 
 ```
