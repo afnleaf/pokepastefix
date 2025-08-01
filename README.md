@@ -2,8 +2,6 @@
 
 ![](pokepastefixdemo.gif)
 
-[pokepast.es](https://pokepast.es/) 
-
 <a href="https://pokepast.es" target="_blank" rel="noopener noreferrer">pokepast.es</a> is missing images for some of the newest pokemon, this web extension replaces them.
 
 ## Install
@@ -11,6 +9,9 @@
 
 [Firefox](https://addons.mozilla.org/en-US/firefox/addon/pokepastefix/)
 
+<img src="https://en.wikipedia.org/wiki/Firefox#/media/File:Firefox_logo,_2019.svg" width="128" height="128" href="https://en.wikipedia.org/wiki/Firefox#/media/File:Firefox_logo,_2019.svg"/>
+
+make sure to enable permissions on Firefox.
 ![](firefox_enable_permissions.png)
 
 ## Features
