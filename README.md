@@ -6,7 +6,7 @@ The premiere pokemon team sharing tool, <a href="https://pokepast.es" target="_b
 
 ## Install
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/240px-Google_Chrome_icon_%28February_2022%29.svg.png" width="128" height="128" href="https://chromewebstore.google.com/detail/pokepastefix/ekceaboabpgkgbpigacngnjagcdhdkmn"/> <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Firefox_logo%2C_2019.png" width="128" height="128" href="https://addons.mozilla.org/en-US/firefox/addon/pokepastefix/"/>
+<a href="https://chromewebstore.google.com/detail/pokepastefix/ekceaboabpgkgbpigacngnjagcdhdkmn"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Google_Chrome_icon_%28February_2022%29.svg/240px-Google_Chrome_icon_%28February_2022%29.svg.png" width="128" height="128" /></a> <a href="https://addons.mozilla.org/en-US/firefox/addon/pokepastefix/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Firefox_logo%2C_2019.png" width="128" height="128"/></a>
 
 make sure to enable permissions on Firefox.
 
