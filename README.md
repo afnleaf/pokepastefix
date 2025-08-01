@@ -4,7 +4,7 @@
 
 [pokepast.es](https://pokepast.es/) 
 
-<a href="https://pokepast.es" target="_blank">pokepast.es</a> is missing images for some of the newest pokemon, this web extension replaces them.
+<a href="https://pokepast.es" target="_blank" rel="noopener noreferrer">pokepast.es</a> is missing images for some of the newest pokemon, this web extension replaces them.
 
 ## Install
 [Chrome](https://chromewebstore.google.com/detail/pokepastefix/ekceaboabpgkgbpigacngnjagcdhdkmn)
