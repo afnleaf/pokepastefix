@@ -9,7 +9,7 @@
 
 [Firefox](https://addons.mozilla.org/en-US/firefox/addon/pokepastefix/)
 
-<img src="https://en.wikipedia.org/wiki/Firefox#/media/File:Firefox_logo,_2019.svg" width="128" height="128" href="https://en.wikipedia.org/wiki/Firefox#/media/File:Firefox_logo,_2019.svg"/>
+<img src="https://en.wikipedia.org/wiki/Firefox#/media/File:Firefox_logo,_2019.svg" width="128" height="128" href="https://addons.mozilla.org/en-US/firefox/addon/pokepastefix/"/>
 
 make sure to enable permissions on Firefox.
 ![](firefox_enable_permissions.png)
