@@ -1,6 +1,6 @@
 # pokepastefix
 
-[](pokepastefixdemo.gif)
+![](pokepastefixdemo.gif)
 
 [pokepast.es](https://pokepast.es/) is missing images for some of the newest pokemon, this web extension replaces them.
 
@@ -9,7 +9,7 @@
 
 [Firefox](https://addons.mozilla.org/en-US/firefox/addon/pokepastefix/)
 
-[](firefox_enable_permissions.png)
+![](firefox_enable_permissions.png)
 
 ## Features
 - [x] unify codebase for Blink and Gecko
