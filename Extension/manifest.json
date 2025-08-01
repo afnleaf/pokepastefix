@@ -1,0 +1,34 @@
+{
+  "name": "pokepastefix",
+  "version": "1.1.0",
+  "manifest_version": 3,
+  "description": "Fix missing pictures on pokepast.es",
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://pokepast.es/*"],
+      "js": ["lib/browser-polyfill.js", "content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{d3f783bc-e653-445e-bc13-2b7f82b22869}",
+      "strict_min_version": "109.0"
+    }
+  }
+}
