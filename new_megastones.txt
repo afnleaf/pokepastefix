@@ -1,0 +1,144 @@
+Raichu-Mega-X @ Raichunite X  
+Ability: Surge Surfer  
+
+Raichu-Mega-Y @ Raichunite Y  
+Ability: Surge Surfer  
+
+Clefable-Mega @ Clefablite  
+Ability: Magic Bounce  
+
+Victreebel-Mega @ Victreebelite  
+Ability: Innards Out  
+
+Starmie-Mega @ Starminite  
+Ability: Huge Power  
+
+Dragonite-Mega @ Dragoninite  
+Ability: Multiscale  
+
+Meganium-Mega @ Meganiumite  
+Ability: Mega Sol  
+
+Feraligatr-Mega @ Feraligite  
+Ability: Dragonize  
+
+Skarmory-Mega @ Skarmorite  
+Ability: Stalwart  
+
+Absol-Mega-Z @ Absolite Z  
+Ability: Magic Bounce  
+
+Staraptor-Mega @ Staraptite  
+Ability: Intimidate  
+
+Garchomp-Mega-Z @ Garchompite Z  
+Ability: Sand Force  
+
+Lucario-Mega-Z @ Lucarionite Z  
+Ability: Adaptability  
+
+Froslass-Mega (F) @ Froslassite  
+Ability: Snow Warning  
+
+Heatran-Mega @ Heatranite  
+Ability: Flash Fire  
+
+Darkrai-Mega @ Darkranite  
+Ability: Bad Dreams  
+
+Emboar-Mega @ Emboarite  
+Ability: Mold Breaker  
+
+Excadrill-Mega @ Excadrite  
+Ability: Piercing Drill  
+
+Scolipede-Mega @ Scolipite  
+Ability: Poison Point  
+
+Scrafty-Mega @ Scraftinite  
+Ability: Shed Skin  
+
+Eelektross-Mega @ Eelektrossite  
+Ability: Levitate
+
+Chandelure-Mega @ Chandelurite  
+Ability: Infiltrator  
+
+Golurk-Mega @ Golurkite  
+Ability: Unseen Fist  
+
+Delphox-Mega @ Delphoxite  
+Ability: Levitate  
+
+Chesnaught-Mega @ Chesnaughtite  
+Ability: Bulletproof  
+
+Greninja-Mega @ Greninjite  
+Ability: Protean  
+
+Pyroar-Mega @ Pyroarite  
+Ability: Rivalry  
+
+Floette-Mega (F) @ Floettite  
+Ability: Fairy Aura  
+
+Meowstic-F-Mega (F) @ Meowsticite  
+Ability: Trace  
+
+Meowstic-M-Mega (M) @ Meowsticite  
+Ability: Trace  
+
+Malamar-Mega @ Malamarite  
+Ability: Contrary  
+
+Barbaracle-Mega @ Barbaracite  
+Ability: Tough Claws  
+
+Dragalge-Mega @ Dragalgite  
+Ability: Poison Point  
+
+Hawlucha-Mega @ Hawluchanite  
+Ability: No Guard  
+
+Zygarde-Mega @ Zygardite  
+Ability: Aura Break  
+
+Crabominable-Mega @ Crabominite  
+Ability: Iron Fist  
+
+Golisopod-Mega @ Golisopite  
+Ability: Emergency Exit  
+
+Drampa-Mega @ Drampanite  
+Ability: Berserk  
+
+Magearna-Mega @ Magearnite  
+Ability: Soul-Heart  
+
+Magearna-Original-Mega @ Magearnite  
+Ability: Soul-Heart  
+
+Zeraora-Mega @ Zeraorite  
+Ability: Volt Absorb  
+
+Falinks-Mega @ Falinksite  
+Ability: Battle Armor  
+
+Scovillain-Mega @ Scovillainite  
+Ability: Spicy Spray  
+
+Glimmora-Mega @ Glimmoranite  
+Ability: Adaptability  
+
+Tatsugiri-Curly-Mega @ Tatsugirinite  
+Ability: Commander  
+
+Tatsugiri-Droopy-Mega @ Tatsugirinite  
+Ability: Commander  
+
+Tatsugiri-Stretchy-Mega @ Tatsugirinite  
+Ability: Commander  
+
+Baxcalibur-Mega @ Baxcalibrite  
+Ability: Thermal Exchange  
+

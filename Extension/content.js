@@ -64,7 +64,58 @@ const replacements = [
     "arceus-water",
     "dialga-origin",
     "palkia-origin",
-    "magearna-original"
+    "magearna-original",
+    // Pokemon ZA/Champions additions
+    "raichu-mega-x",
+    "raichu-mega-y",    
+    "clefable-mega",    
+    "victreebel-mega",  
+    "starmie-mega",     
+    "dragonite-mega",   
+    "meganium-mega",    
+    "feraligatr-mega",  
+    "skarmory-mega",    
+    "chimecho-mega",    
+    "absol-mega-z",     
+    "staraptor-mega",   
+    "garchomp-mega-z",  
+    "lucario-mega-z",   
+    "froslass-mega",    
+    "heatran-mega",     
+    "darkrai-mega",     
+    "emboar-mega",      
+    "excadrill-mega",   
+    "scolipede-mega",   
+    "scrafty-mega",     
+    "eelektross-mega",  
+    "chandelure-mega",  
+    "golurk-mega",      
+    "chesnaught-mega",  
+    "delphox-mega",     
+    "greninja-mega",    
+    "pyroar-mega",      
+    "floette-mega",     
+    "meowstic-mega",    
+    "meowstic-m-mega",    
+    "meowstic-f-mega",    
+    "malamar-mega",     
+    "barbaracle-mega",  
+    "dragalge-mega",    
+    "hawlucha-mega",    
+    "zygarde-mega",     
+    "crabominable-mega",
+    "golisopod-mega",   
+    "drampa-mega",      
+    "magearna-mega",    
+    "magearna-original-mega",   
+    "zeraora-mega",             
+    "falinks-mega",             
+    "scovillain-mega",          
+    "glimmora-mega",            
+    "tatsugiri-curly-mega",           
+    "tatsugiri-droopy-mega",    
+    "tatsugiri-stretchy-mega",  
+    "baxcalibur-mega",          
 ];
 
 // incorrectly spelled cases point to the correct spelling
@@ -102,6 +153,52 @@ const items = {
     "lustrous globe": "https://www.serebii.net/itemdex/sprites/sv/lustrousglobe.png",
     "adamant crystal": "https://www.serebii.net/itemdex/sprites/sv/adamantcrystal.png",
     "griseous core": "https://www.serebii.net/itemdex/sprites/sv/griseouscore.png",
+    // new mega stones
+    "raichunite x": "https://www.serebii.net/pokedex-sv/evoicon/mega26x.png",
+    "raichunite y": "https://www.serebii.net/pokedex-sv/evoicon/mega26y.png",
+    "clefablite": "https://www.serebii.net/pokedex-sv/evoicon/mega36.png",
+    "victreebelite": "https://www.serebii.net/pokedex-sv/evoicon/mega71.png",
+    "starminite": "https://www.serebii.net/pokedex-sv/evoicon/mega121.png",
+    "dragoninite": "https://www.serebii.net/pokedex-sv/evoicon/mega149.png",
+    "meganiumite": "https://www.serebii.net/pokedex-sv/evoicon/mega154.png",
+    "feraligite": "https://www.serebii.net/pokedex-sv/evoicon/mega160.png",
+    "skarmorite": "https://www.serebii.net/pokedex-sv/evoicon/mega227.png",
+    "chimechite": "https://www.serebii.net/pokedex-sv/evoicon/mega358.png",
+    "absolite z": "https://www.serebii.net/pokedex-sv/evoicon/mega359z.png",
+    "staraptite": "https://www.serebii.net/pokedex-sv/evoicon/mega398.png",
+    "garchompite z": "https://www.serebii.net/pokedex-sv/evoicon/mega445z.png",
+    "lucarionite z": "https://www.serebii.net/pokedex-sv/evoicon/mega448z.png",
+    "froslassite": "https://www.serebii.net/pokedex-sv/evoicon/mega478.png",
+    "heatranite": "https://www.serebii.net/pokedex-sv/evoicon/mega485.png",
+    "darkranite": "https://www.serebii.net/pokedex-sv/evoicon/mega491.png",
+    "emboarite": "https://www.serebii.net/pokedex-sv/evoicon/mega500.png",
+    "excadrite": "https://www.serebii.net/pokedex-sv/evoicon/mega530.png",
+    "scolipite": "https://www.serebii.net/pokedex-sv/evoicon/mega545.png",
+    "scraftinite": "https://www.serebii.net/pokedex-sv/evoicon/mega560.png",
+    "eelektrossite": "https://www.serebii.net/pokedex-sv/evoicon/mega604.png",
+    "chandelurite": "https://www.serebii.net/pokedex-sv/evoicon/mega609.png",
+    "golurkite": "https://www.serebii.net/pokedex-sv/evoicon/mega623.png",
+    "delphoxite": "https://www.serebii.net/pokedex-sv/evoicon/mega655.png",
+    "chesnaughtite": "https://www.serebii.net/pokedex-sv/evoicon/mega652.png",
+    "greninjite": "https://www.serebii.net/pokedex-sv/evoicon/mega658.png",
+    "pyroarite": "https://www.serebii.net/pokedex-sv/evoicon/mega668.png",
+    "floettite": "https://www.serebii.net/pokedex-sv/evoicon/mega670.png",
+    "meowsticite": "https://www.serebii.net/pokedex-sv/evoicon/mega678.png",
+    "malamarite": "https://www.serebii.net/pokedex-sv/evoicon/mega687.png",
+    "barbaracite": "https://www.serebii.net/pokedex-sv/evoicon/mega689.png",
+    "dragalgite": "https://www.serebii.net/pokedex-sv/evoicon/mega691.png",
+    "hawluchanite": "https://www.serebii.net/pokedex-sv/evoicon/mega701.png",
+    "zygardite": "https://www.serebii.net/pokedex-sv/evoicon/mega718.png",
+    "crabominite": "https://www.serebii.net/pokedex-sv/evoicon/mega740.png",
+    "golisopite": "https://www.serebii.net/pokedex-sv/evoicon/mega768.png",
+    "drampanite": "https://www.serebii.net/pokedex-sv/evoicon/mega780.png",
+    "magearnite": "https://www.serebii.net/pokedex-sv/evoicon/mega801.png",
+    "zeraorite": "https://www.serebii.net/pokedex-sv/evoicon/mega807.png",
+    "falinksite": "https://www.serebii.net/pokedex-sv/evoicon/mega870.png",
+    "scovillainite": "https://www.serebii.net/pokedex-sv/evoicon/mega952.png",
+    "glimmoranite": "https://www.serebii.net/pokedex-sv/evoicon/mega970.png",
+    "tatsugirinite": "https://www.serebii.net/pokedex-sv/evoicon/mega978.png",
+    "baxcalibrite": "https://www.serebii.net/pokedex-sv/evoicon/mega998.png",
 };
 
 // encode as route
@@ -149,6 +246,7 @@ function replaceImage(q, imgElement, pokemon_name) {
     img.onload = function() {
         // the image loaded successfully
         imgElement.src = imageUrl;
+        console.log(`replaced: ${imageUrl} ${pokemon_name} ${q}`);
     };
     img.onerror = function() {
         // an error occurred while loading the image (e.g., 403 Forbidden)
@@ -166,6 +264,12 @@ function appendItemImage(pokemon, itemUrl) {
     let imgElement = document.createElement('img');
     imgElement.className = 'img-item';
     imgElement.src = `${itemUrl}`;
+    // have to add custom styles to our appended images
+    // the new mega stone art from serebii.net was getting squished
+    imgElement.style.width = 'auto';
+    imgElement.style.height = 'auto';
+    imgElement.style.maxWidth = '40px';
+    imgElement.style.maxHeight = '40px';
 
     // find the div to append it to
     const imgContainer = pokemon.querySelector("div.img");
@@ -181,10 +285,10 @@ function chooseImageQuality(imageQuality) {
         case 0:
             q = "256";
             break;
+        //case 1:
+        //    q = "1024";
+        //    break;
         case 1:
-            q = "1024";
-            break;
-        case 2:
             q = "full"; 
             break;
         default:
