@@ -1,3 +1,7 @@
+## Version 1.1.2
+Published 2026 04 16
+Added floette-eternal to default replacement mode.
+
 ## Version 1.1.1
 Published 2026 04 12
 Added all the new Pokemon Legends ZA Mega Pokemon alongside the launch of Pokemon Champions. Mega Stone images sourced from serebii net, not quite proper size.
