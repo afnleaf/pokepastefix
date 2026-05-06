@@ -1,3 +1,7 @@
+## Version 1.2.0: The Shiny Update
+Published 2026 05 XX
+Major image server upgrade: switched main API from https://chiy.uk/ to the more robust https://pokeapi.co/ which enables shinies and gen based sprites. The old image server is now used as a fallback. 
+
 ## Version 1.1.2
 Published 2026 04 16
 Added floette-eternal to default replacement mode.

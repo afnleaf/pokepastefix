@@ -1,0 +1,428 @@
+poltchageist
+Shiny: Yes
+
+sinistcha
+Shiny: Yes
+
+sinistcha-masterpiece
+Shiny: Yes
+
+ursaluna-bloodmoon
+Shiny: Yes
+
+okidogi
+Shiny: Yes
+
+munkidori
+Shiny: Yes
+
+fezandipiti
+Shiny: Yes
+
+ogerpon
+Shiny: Yes
+
+ogerpon-cornerstone
+Shiny: Yes
+
+ogerpon-hearthflame
+Shiny: Yes
+
+ogerpon-wellspring
+Shiny: Yes
+
+growlithe-hisui
+Shiny: Yes
+
+arcanine-hisui
+Shiny: Yes
+
+voltorb-hisui
+Shiny: Yes
+
+electrode-hisui
+Shiny: Yes
+
+typhlosion-hisui
+Shiny: Yes
+
+qwilfish-hisui
+Shiny: Yes
+
+overqwil
+Shiny: Yes
+
+sneasel-hisui
+Shiny: Yes
+
+samurott-hisui
+Shiny: Yes
+
+lilligant-hisui
+Shiny: Yes
+
+zorua-hisui
+Shiny: Yes
+
+zoroark-hisui
+Shiny: Yes
+
+braviary-hisui
+Shiny: Yes
+
+sliggoo-hisui
+Shiny: Yes
+
+goodra-hisui
+Shiny: Yes
+
+avalugg-hisui
+Shiny: Yes
+
+decidueye-hisui
+Shiny: Yes
+
+archaludon
+Shiny: Yes
+
+hydrapple
+Shiny: Yes
+
+iron boulder
+Shiny: Yes
+
+iron crown
+Shiny: Yes
+
+raging bolt
+Shiny: Yes
+
+gouging fire
+Shiny: Yes
+
+terapagos
+Shiny: Yes
+
+terapagos-terastal
+Shiny: Yes
+
+terapagos-stellar
+Shiny: Yes
+
+walking wake
+Shiny: Yes
+
+iron leaves
+Shiny: Yes
+
+sirfetch’d
+Shiny: Yes
+
+zygarde-10%
+Shiny: Yes
+
+zygarde-complete
+Shiny: Yes
+
+greninja-ash
+Shiny: Yes
+
+greninja-bond
+Shiny: Yes
+
+pecharunt
+Shiny: Yes
+
+arceus-bug
+Shiny: Yes
+
+arceus-dark
+Shiny: Yes
+
+arceus-dragon
+Shiny: Yes
+
+arceus-electric
+Shiny: Yes
+
+arceus-fairy
+Shiny: Yes
+
+arceus-fighting
+Shiny: Yes
+
+arceus-fire
+Shiny: Yes
+
+arceus-flying
+Shiny: Yes
+
+arceus-ghost
+Shiny: Yes
+
+arceus-grass
+Shiny: Yes
+
+arceus-ground
+Shiny: Yes
+
+arceus-ice
+Shiny: Yes
+
+arceus-poison
+Shiny: Yes
+
+arceus-psychic
+Shiny: Yes
+
+arceus-rock
+Shiny: Yes
+
+arceus-steel
+Shiny: Yes
+
+arceus-water
+Shiny: Yes
+
+dialga-origin
+Shiny: Yes
+
+palkia-origin
+Shiny: Yes
+
+magearna-original
+Shiny: Yes
+
+raichu-mega-x
+Shiny: Yes
+
+raichu-mega-y
+Shiny: Yes
+
+clefable-mega
+Shiny: Yes
+
+victreebel-mega
+Shiny: Yes
+
+starmie-mega
+Shiny: Yes
+
+dragonite-mega
+Shiny: Yes
+
+meganium-mega
+Shiny: Yes
+
+feraligatr-mega
+Shiny: Yes
+
+skarmory-mega
+Shiny: Yes
+
+chimecho-mega
+Shiny: Yes
+
+absol-mega-z
+Shiny: Yes
+
+staraptor-mega
+Shiny: Yes
+
+garchomp-mega-z
+Shiny: Yes
+
+lucario-mega-z
+Shiny: Yes
+
+froslass-mega
+Shiny: Yes
+
+heatran-mega
+Shiny: Yes
+
+darkrai-mega
+Shiny: Yes
+
+emboar-mega
+Shiny: Yes
+
+excadrill-mega
+Shiny: Yes
+
+scolipede-mega
+Shiny: Yes
+
+scrafty-mega
+Shiny: Yes
+
+eelektross-mega
+Shiny: Yes
+
+chandelure-mega
+Shiny: Yes
+
+golurk-mega
+Shiny: Yes
+
+chesnaught-mega
+Shiny: Yes
+
+delphox-mega
+Shiny: Yes
+
+greninja-mega
+Shiny: Yes
+
+pyroar-mega
+Shiny: Yes
+
+floette-mega
+Shiny: Yes
+
+floette-eternal
+Shiny: Yes
+
+meowstic-mega
+Shiny: Yes
+
+meowstic-m-mega
+Shiny: Yes
+
+meowstic-f-mega
+Shiny: Yes
+
+malamar-mega
+Shiny: Yes
+
+barbaracle-mega
+Shiny: Yes
+
+dragalge-mega
+Shiny: Yes
+
+hawlucha-mega
+Shiny: Yes
+
+zygarde-mega
+Shiny: Yes
+
+crabominable-mega
+Shiny: Yes
+
+golisopod-mega
+Shiny: Yes
+
+drampa-mega
+Shiny: Yes
+
+magearna-mega
+Shiny: Yes
+
+magearna-original-mega
+Shiny: Yes
+
+zeraora-mega
+Shiny: Yes
+
+falinks-mega
+Shiny: Yes
+
+scovillain-mega
+Shiny: Yes
+
+glimmora-mega
+Shiny: Yes
+
+tatsugiri-curly-mega
+Shiny: Yes
+
+tatsugiri-droopy-mega
+Shiny: Yes
+
+tatsugiri-stretchy-mega
+Shiny: Yes
+
+baxcalibur-mega
+Shiny: Yes
+
+great-tusk
+Shiny: Yes
+
+scream-tail
+Shiny: Yes
+
+brute-bonnet
+Shiny: Yes
+
+flutter-mane
+Shiny: Yes
+
+slither-wing
+Shiny: Yes
+
+sandy-shocks
+Shiny: Yes
+
+iron-treads
+Shiny: Yes
+
+iron-bundle
+Shiny: Yes
+
+iron-hands
+Shiny: Yes
+
+iron-jugulis
+Shiny: Yes
+
+iron-moth
+Shiny: Yes
+
+iron-thorns
+Shiny: Yes
+
+iron-boulder
+Shiny: Yes
+
+iron-crown
+Shiny: Yes
+
+iron-leaves
+Shiny: Yes
+
+raging-bolt
+Shiny: Yes
+
+gouging-fire
+Shiny: Yes
+
+walking-wake
+Shiny: Yes
+
+cornerstone mask ogerpon
+Shiny: Yes
+
+hearthflame mask ogerpon
+Shiny: Yes
+
+wellspring mask ogerpon
+Shiny: Yes
+
+origin forme dialga
+Shiny: Yes
+
+origin forme palkia
+Shiny: Yes
+
+mega floette
+Shiny: Yes
+
+ogerpon-cornerstone
+Shiny: Yes
+
+ogerpon-wellspring
+Shiny: Yes
+
+ogerpon-hearthflame
+Shiny: Yes

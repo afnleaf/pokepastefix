@@ -8,9 +8,9 @@ const replacements = [
     "munkidori",
     "fezandipiti",
     "ogerpon",
-    "ogerpon-cornerstone",
-    "ogerpon-hearthflame",
-    "ogerpon-wellspring",
+    //"ogerpon-cornerstone",
+    //"ogerpon-hearthflame",
+    //"ogerpon-wellspring",
     "growlithe-hisui",
     "arcanine-hisui",
     "voltorb-hisui",
@@ -65,6 +65,12 @@ const replacements = [
     "dialga-origin",
     "palkia-origin",
     "magearna-original",
+    "magearna-mega",
+    "magearna-original-mega",
+    "greninja-battle-bond",
+    "ogerpon-cornerstone-mask",
+    "ogerpon-hearthflame-mask",
+    "ogerpon-wellspring-mask",
     // Pokemon ZA/Champions additions
     "raichu-mega-x",
     "raichu-mega-y",    
@@ -97,8 +103,8 @@ const replacements = [
     "floette-mega",
     "floette-eternal",
     "meowstic-mega",    
-    "meowstic-m-mega",    
-    "meowstic-f-mega",    
+    //"meowstic-m-mega",    
+    //"meowstic-f-mega",    
     "malamar-mega",     
     "barbaracle-mega",  
     "dragalge-mega",    
@@ -108,7 +114,7 @@ const replacements = [
     "golisopod-mega",   
     "drampa-mega",      
     "magearna-mega",    
-    "magearna-original-mega",   
+    //"magearna-original-mega",   
     "zeraora-mega",             
     "falinks-mega",             
     "scovillain-mega",          
@@ -116,35 +122,96 @@ const replacements = [
     "tatsugiri-curly-mega",           
     "tatsugiri-droopy-mega",    
     "tatsugiri-stretchy-mega",  
-    "baxcalibur-mega",          
+    "baxcalibur-mega",
+    "great-tusk",   
+    "scream-tail",  
+    "brute-bonnet", 
+    "flutter-mane", 
+    "slither-wing",
+    "sandy-shocks", 
+    "iron-treads",
+    "iron-bundle",  
+    "iron-hands",
+    "iron-jugulis", 
+    "iron-moth",
+    "iron-thorns",
+    "iron-boulder",
+    "iron-crown",
+    "iron-leaves",
+    "raging-bolt",
+    "gouging-fire",
+    "walking-wake",
+    "gouging-fire",
+    "raging-bolt",
+    "iron-leaves",
+    "iron-boulder",
+    "iron-crown",
+
 ];
 
 // incorrectly spelled cases point to the correct spelling
 const badnames = {
-    "great-tusk": "great tusk",
-    "scream-tail": "scream tail",
-    "brute-bonnet": "brute bonnet",
-    "flutter-mane": "flutter mane",
-    "slither-wing": "slither wing",
-    "sandy-shocks": "sandy shocks",
-    "iron-treads": "iron treads",
-    "iron-bundles": "iron bundle",
-    "iron-hands": "iron hands",
-    "iron-jugulis": "iron jugulis",
-    "iron-moth": "iron moth",
-    "iron-thorns": "iron thorns",
-    "iron-boulder": "iron boulder",
-    "iron-crown": "iron crown",
-    "iron-leaves": "iron leaves",
-    "raging-bolt": "raging bolt",
-    "gouging-fire": "gouging fire",
-    "walking-wake": "walking wake",
-    "cornerstone mask ogerpon": "ogerpon-cornerstone",
-    "hearthflame mask ogerpon": "ogerpon-hearthflame",
-    "wellspring mask ogerpon": "ogerpon-wellspring",
-    "origin forme dialga": "dialga-origin",
-    "origin forme palkia": "palkia-origin"
+    //"great-tusk":     "great tusk",
+    //"scream-tail":    "scream tail",
+    //"brute-bonnet":   "brute bonnet",
+    //"flutter-mane":   "flutter mane",
+    //"slither-wing":   "slither wing",
+    //"sandy-shocks":   "sandy shocks",
+    //"iron-treads":    "iron treads",
+    //"iron-bundle":    "iron bundle",
+    //"iron-hands":     "iron hands",
+    //"iron-jugulis":   "iron jugulis",
+    //"iron-moth":      "iron moth",
+    //"iron-thorns":    "iron thorns",
+    //"iron-boulder":   "iron boulder",
+    //"iron-crown":     "iron crown",
+    //"iron-leaves":    "iron leaves",
+    //"raging-bolt":    "raging bolt",
+    //"gouging-fire":   "gouging fire",
+    //"walking-wake":   "walking wake",
+    //    
+    "walking wake":             "walking-wake",
+    "gouging fire":             "gouging-fire",
+    "raging bolt":              "raging-bolt",
+    "iron leaves":              "iron-leaves",
+    "iron boulder":             "iron-boulder",
+    "iron crown":               "iron-crown",
+    "greninja-bond":            "greninja-battle-bond",
+    "sinistcha-masterpiece":    "sinistcha",
+    "cornerstone mask ogerpon": "ogerpon-cornerstone-mask",
+    "hearthflame mask ogerpon": "ogerpon-hearthflame-mask",
+    "wellspring mask ogerpon":  "ogerpon-wellspring-mask",
+    "origin forme dialga":      "dialga-origin",
+    "origin forme palkia":      "palkia-origin",
+    "ogerpon-cornerstone":      "ogerpon-cornerstone-mask",
+    "ogerpon-wellspring":       "ogerpon-wellspring-mask",
+    "ogerpon-hearthflame":      "ogerpon-hearthflame-mask",
+    "meowstic-m-mega":          "meowstic-mega",
+    "meowstic-f-mega":          "meowstic-mega",
+    //"magearna-original-mega": "magearna-original",
+    "mega floette":             "floette-mega"
 };
+
+// for art we need to use chiy.uk for because it is missing from PokeAPI
+const missingPokeApi = [
+    "arceus-bug",
+    "arceus-dark",
+    "arceus-dragon",
+    "arceus-electric",
+    "arceus-fairy",
+    "arceus-fighting",
+    "arceus-fire",
+    "arceus-flying",
+    "arceus-ghost",
+    "arceus-grass",
+    "arceus-ground",
+    "arceus-ice",
+    "arceus-poison",
+    "arceus-psychic",
+    "arceus-rock",
+    "arceus-steel",
+    "arceus-water"
+];
 
 const items = {
     "cornerstone mask": "https://www.serebii.net/itemdex/sprites/sv/cornerstonemask.png",
@@ -219,11 +286,10 @@ function encodeName(name) {
     // question mark in Farfetch'dname = name.replaceAll(" ", "-");
     // Remove any remaining unsafe URL characters
     // Avoid double-hyphens and clean up
-    
+    //console.log(`name1: ${name}`);
     name = name.toLowerCase()
         .replaceAll(" ", "-")
         .replaceAll(":", "-")
-        .replaceAll("'", "")
         .replaceAll("'", "")
         .replaceAll(".", "")
         .replaceAll("♀", "-f")
@@ -234,15 +300,78 @@ function encodeName(name) {
         .replace(/\-+/g, "-")
         .replace(/^\-|\-$/g, "");
     
+    //console.log(`name2: ${name}`);
     return name;
 }
 
+async function getImageUrlChiyuk(quality, route) {
+    return `https://chiy.uk/${quality}/${route}`;
+}
+
+async function getImageUrlPokeApi(shiny, route) {
+    let url = `https://pokeapi.co/api/v2/pokemon/${route}`;
+    let r = "";
+    try {
+        //console.log(`test: ${route}`);
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`PokeAPI error: ${response.status}`);
+        }
+        const data = await response.json();
+        //console.log(`result: ${result}`);
+        // so now we have a response we can try to grab the art
+        //r = result["sprites"]["official-artwork"]["front_default"];
+        // fallback chain
+        // can do this smarter, get to right before front_ -> branch on shiny
+        // this doesn't work
+        //let art = data?.sprites?.other?.["official-artwork"]? ||
+        //          data?.sprites?.other?.["home"]? ||
+        //          data?.sprites?.other?.["showdown"]? ||
+        //          data?.sprites?;
+
+        //r = (shiny)
+        //    ? art.front_shiny 
+        //    : art.front_default;
+
+
+        if(shiny) {
+            r = data?.sprites?.other?.["official-artwork"]?.front_shiny ||
+                data?.sprites?.other?.["home"]?.front_shiny ||
+                data?.sprites?.other?.["showdown"]?.front_shiny ||
+                data?.sprites?.front_shiny;
+        } else {
+            r = 
+                data?.sprites?.other?.["official-artwork"]?.front_default ||
+                data?.sprites?.other?.["home"]?.front_default ||
+                data?.sprites?.other?.["showdown"]?.front_default ||
+                data?.sprites?.front_default;
+        }
+
+        //console.log(`pokeapi url: ${r}`);
+    } catch (error) {
+        console.error(error.message);
+    }
+    return r;
+}
 
 // function that replaces the image sources
-function replaceImage(q, imgElement, pokemon_name) {
+async function replaceImage(shiny, q, imgElement, pokemon_name) {
     const img = new Image();
     let route = encodeName(pokemon_name);
-    const imageUrl = `https://chiy.uk/${q}/${route}`;
+    //console.log("encoded name: ", route);
+    //const imageUrl = `https://chiy.uk/${q}/${route}`;
+    // lets try pokeapi, hopefully our encoded name is what works
+    // have chiyuk as fallback for some missing art
+    //(route in missingPokeApi) 
+    let imageUrl = 
+        missingPokeApi.includes(route)
+        ? await getImageUrlChiyuk(q, route)  
+        : await getImageUrlPokeApi(shiny, route);
+
+    if (imageUrl === "") {
+        imageUrl = getImageUrlChiyuk(q, route);
+    }
+    //console.log(`imageUrl: ${imageUrl}`);
     img.src = imageUrl;
     img.onload = function() {
         // the image loaded successfully
@@ -255,9 +384,9 @@ function replaceImage(q, imgElement, pokemon_name) {
     };
 }
 
-function replacePokemon(q, pokemon, pokemon_name) {
+async function replacePokemon(shiny, q, pokemon, pokemon_name) {
     const imgElement = pokemon.querySelector('.img-pokemon');
-    replaceImage(q, imgElement, pokemon_name);
+    await replaceImage(shiny, q, imgElement, pokemon_name);
 }
 
 function appendItemImage(pokemon, itemUrl) {
@@ -332,7 +461,9 @@ function parsePokemonInfo(line) {
     name = name.toLowerCase();
     // check for weird names
     if(name in badnames) {
-        name = badnames[pokemon_name];
+        //console.log(`badname: ${name}`)
+        name = badnames[name];
+        //console.log(`fixed: ${name}`)
     }
 
     return { name, item };
@@ -342,39 +473,91 @@ function shouldReplacePokemon(name, replaceAll) {
     return replaceAll || replacements.includes(name);
 }
 
-function main(imageQuality, replaceAll) {
+// already lowercase
+function findShinyLine(text) {
+    let i = text.indexOf("shiny")
+    if(i !== -1) {
+        // find next line from i to j
+        let j = text.indexOf("\n", i);
+        if(j === -1) {
+            j = text.length;
+        }
+        const line = text.substring(i, j);
+        const parts = line.split(":");
+
+        if (parts.length < 2) return false;
+
+        // split shiny: yes on colon, get 2nd part
+        let b = parts[1].trim();
+        return b === "yes";
+    }
+    return false;
+}
+
+async function main(imageQuality, replaceAll, shiny, gens) {
     // set image quality based on option
-    let quality = chooseImageQuality(imageQuality);
+    let quality = chooseImageQuality(imageQuality)
+    //let shinyEnabled = setShinyBool(shiny);
+    let s = false;
     // get all articles that contain a pokemon
     const pokemonArticles = document.querySelectorAll("article");
 
-    // loop through all the pokemon
-    pokemonArticles.forEach(pokemon => {
-        // get first line
-        let firstLine = pokemon.innerText.split("\n")[0].trim();
-        const { name, item } = parsePokemonInfo(firstLine);
+    // concurrency replace all images async
+    await Promise.all(
+        Array.from(pokemonArticles).map(async pokemon => {
+            // get first line
+            const text = pokemon.innerText.toLowerCase();
+            //let firstLine = text.split("\n")[0].trim();
+            let firstNewLine = text.indexOf("\n");
+            let firstLine = text.subString(0, firstNewLine).trim();
+            let rest = text.subString(firstNewLine + 1);
+            const { name, item } = parsePokemonInfo(firstLine);
 
-        // handle item image if it is missing
-        if(item && items[item]) {
-            appendItemImage(pokemon, items[item]);
-        }
+            switch (shiny) {
+                case 0:
+                    s = false;
+                    break;
+                case 1:
+                    s = findShinyLine(rest);
+                    break;
+                case 2:
+                    s = true;
+                    break;
+                default:
+                    s = false;
+                    break;
+            }
 
-        // handle pokemon replacement if missing
-        if(shouldReplacePokemon(name, replaceAll)) {
-            replacePokemon(quality, pokemon, name);
-        }
-    });
+            // handle item image if it is missing
+            if(item && items[item]) {
+                appendItemImage(pokemon, items[item]);
+            }
+
+            // handle pokemon replacement if missing
+            // also if we have shiny set to true
+            if(shouldReplacePokemon(name, replaceAll) || s) {
+                await replacePokemon(s, quality, pokemon, name);
+            }
+        })
+    );
 }
 
 // retrieve options from browser storage
 browser.storage.sync.get({
     // defaults
     imageQuality: 0,
-    replaceAll: 0
-}).then((options) => {
+    replaceAll: 0,
+    shiny: 0,
+    gens: 0,
+}).then(async options => {
     // run script using option values
     //console.log('Retrieved options:', options);
-    main(options.imageQuality, options.replaceAll);
+    await main(
+        options.imageQuality, 
+        options.replaceAll, 
+        options.shiny, 
+        options.gens
+    );
 }).catch((error) => {
     console.error('Error retrieving options:', error);
 });
