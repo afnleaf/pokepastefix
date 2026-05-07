@@ -308,7 +308,7 @@ async function getImageUrlChiyuk(quality, route) {
     return `https://chiy.uk/${quality}/${route}`;
 }
 
-async function getImageUrlPokeApi(shiny, route) {
+async function getImageUrlPokeApi(shiny, format, route) {
     let url = `https://pokeapi.co/api/v2/pokemon/${route}`;
     let r = "";
     try {
@@ -333,20 +333,27 @@ async function getImageUrlPokeApi(shiny, route) {
         //    ? art.front_shiny 
         //    : art.front_default;
 
-
-        if(shiny) {
+        if(format !== null) {
+            const l = GEN_LOOKUP[format];
+            const v = data?.sprites?.versions?.[l.gen]?.[l.sub];
+            const node = l.subsub ? v?.[l.subsub] : v;
+            const wantShiny = shiny && !l.noShiny;
+            const primary = wantShiny
+                ? (l.transparent ? "front_shiny_transparent" : "front_shiny")
+                : (l.transparent ? "front_transparent"       : "front_default");
+            const secondary = wantShiny ? "front_shiny" : "front_default";
+            r = node?.[primary] || node?.[secondary] || data?.sprites?.[secondary];
+        } else if(shiny) {
             r = data?.sprites?.other?.["official-artwork"]?.front_shiny ||
                 data?.sprites?.other?.["home"]?.front_shiny ||
                 data?.sprites?.other?.["showdown"]?.front_shiny ||
                 data?.sprites?.front_shiny;
         } else {
-            r = 
-                data?.sprites?.other?.["official-artwork"]?.front_default ||
+            r = data?.sprites?.other?.["official-artwork"]?.front_default ||
                 data?.sprites?.other?.["home"]?.front_default ||
                 data?.sprites?.other?.["showdown"]?.front_default ||
                 data?.sprites?.front_default;
         }
-
         //console.log(`pokeapi url: ${r}`);
     } catch (error) {
         console.error(error.message);
@@ -355,7 +362,7 @@ async function getImageUrlPokeApi(shiny, route) {
 }
 
 // function that replaces the image sources
-async function replaceImage(shiny, q, imgElement, pokemon_name) {
+async function replaceImage(shiny, format, q, imgElement, pokemon_name) {
     const img = new Image();
     let route = encodeName(pokemon_name);
     //console.log("encoded name: ", route);
@@ -366,10 +373,10 @@ async function replaceImage(shiny, q, imgElement, pokemon_name) {
     let imageUrl = 
         missingPokeApi.includes(route)
         ? await getImageUrlChiyuk(q, route)  
-        : await getImageUrlPokeApi(shiny, route);
+        : await getImageUrlPokeApi(shiny, format, route);
 
     if (imageUrl === "") {
-        imageUrl = getImageUrlChiyuk(q, route);
+        imageUrl = await getImageUrlChiyuk(q, route);
     }
     //console.log(`imageUrl: ${imageUrl}`);
     img.src = imageUrl;
@@ -384,9 +391,9 @@ async function replaceImage(shiny, q, imgElement, pokemon_name) {
     };
 }
 
-async function replacePokemon(shiny, q, pokemon, pokemon_name) {
+async function replacePokemon(shiny, format, q, pokemon, pokemon_name) {
     const imgElement = pokemon.querySelector('.img-pokemon');
-    await replaceImage(shiny, q, imgElement, pokemon_name);
+    await replaceImage(shiny, format, q, imgElement, pokemon_name);
 }
 
 function appendItemImage(pokemon, itemUrl) {
@@ -427,8 +434,8 @@ function chooseImageQuality(imageQuality) {
     return q;
 }
 
-const genderRegex = /\(F\)|\(M\)/g;
-const nicknameRegex = /\(([^)]+)\)/g;
+const genderRegex = /\(F\)|\(M\)/gi;
+const nicknameRegex = /\(([^)]+)\)/gi;
 
 function parsePokemonInfo(line) {
     let name = line.trim();
@@ -475,7 +482,7 @@ function shouldReplacePokemon(name, replaceAll) {
 
 // already lowercase
 function findShinyLine(text) {
-    let i = text.indexOf("shiny")
+    let i = text.indexOf("shiny:")
     if(i !== -1) {
         // find next line from i to j
         let j = text.indexOf("\n", i);
@@ -494,11 +501,89 @@ function findShinyLine(text) {
     return false;
 }
 
-async function main(imageQuality, replaceAll, shiny, gens) {
+// simple lookup table to match what is found in sprites.version{}
+// transparent: prefer front_transparent / front_shiny_transparent (gens 1-2 bake a white bg into front_default)
+// noShiny: generation predates shinies — ignore shiny request rather than serving a non-gen sprite
+const GEN_LOOKUP = {
+    1: { 
+        gen: "generation-i",
+        sub: "yellow",
+        transparent: true, 
+        noShiny: true 
+    },
+    2: { 
+        gen: "generation-ii",
+        sub: "crystal",
+        transparent: true 
+    },
+    3: { 
+        gen: "generation-iii",
+        sub: "emerald"
+    },
+    4: { 
+        gen: "generation-iv",
+        sub: "platinum"
+    },
+    5: { 
+        gen: "generation-v",
+        sub: "black-white", 
+        subsub: "animated" 
+    },
+    // decided against the non sprite generations
+    //6: { gen: "generation-vi",      sub: "x-y" },
+    //7: { gen: "generation-vii",     sub: "ultra-sun-ultra-moon" },
+    //8: { gen: "generation-viii",    sub: ""
+    //9: { gen: "generation-ix",      sub: "scarlet"
+};
+
+function findFormat() {
+    const aside = document.querySelector("aside");
+    const text = aside ? aside.innerText.toLowerCase() : "";
+    //console.log(text);
+    let gen = null;
+    if(text !== "") {
+        const i = text.indexOf("format:");
+        if (i === -1) return null;
+        //console.log(text[i]);
+
+        // search for newline from index i
+        let j = text.indexOf("\n", i);
+        j = j === -1 ? text.length : j;
+        //console.log(text[j]);
+
+        const line = text.substring(i, j);
+        //console.log("line", line);
+        const k = line.indexOf(":");
+        const format = line.substring(k, j).trim();
+        //console.log(format);
+
+        const match = format.match(/gen(\d+)/);
+        // parseInt stops at the first non number
+        gen = match ? parseInt(match[1], 10) : null;
+        if (gen !== null && !(gen in GEN_LOOKUP)) {
+            gen = null;
+        }
+        //console.log(gen);
+    }
+    return gen;
+}
+
+
+async function main(imageQuality, replaceAll, shiny, sprites) {
     // set image quality based on option
     let quality = chooseImageQuality(imageQuality)
     //let shinyEnabled = setShinyBool(shiny);
     let s = false;
+
+
+    let g = false;
+    if(sprites !== 0) {
+        g = true;
+    }
+    
+    // find generation from format
+    let f = g ? findFormat() : null;
+
     // get all articles that contain a pokemon
     const pokemonArticles = document.querySelectorAll("article");
 
@@ -509,8 +594,8 @@ async function main(imageQuality, replaceAll, shiny, gens) {
             const text = pokemon.innerText.toLowerCase();
             //let firstLine = text.split("\n")[0].trim();
             let firstNewLine = text.indexOf("\n");
-            let firstLine = text.subString(0, firstNewLine).trim();
-            let rest = text.subString(firstNewLine + 1);
+            let firstLine = text.substring(0, firstNewLine).trim();
+            let rest = text.substring(firstNewLine + 1);
             const { name, item } = parsePokemonInfo(firstLine);
 
             switch (shiny) {
@@ -535,8 +620,9 @@ async function main(imageQuality, replaceAll, shiny, gens) {
 
             // handle pokemon replacement if missing
             // also if we have shiny set to true
-            if(shouldReplacePokemon(name, replaceAll) || s) {
-                await replacePokemon(s, quality, pokemon, name);
+            // or if gen is true
+            if(shouldReplacePokemon(name, replaceAll) || s || g) {
+                await replacePokemon(s, f, quality, pokemon, name);
             }
         })
     );
@@ -548,15 +634,16 @@ browser.storage.sync.get({
     imageQuality: 0,
     replaceAll: 0,
     shiny: 0,
-    gens: 0,
+    sprites: 0,
 }).then(async options => {
     // run script using option values
     //console.log('Retrieved options:', options);
+    /// we should resolve the options here?
     await main(
         options.imageQuality, 
         options.replaceAll, 
         options.shiny, 
-        options.gens
+        options.sprites
     );
 }).catch((error) => {
     console.error('Error retrieving options:', error);
