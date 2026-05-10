@@ -2,6 +2,11 @@
 Published 2026 05 XX
 Major image server upgrade: switched main API from https://chiy.uk/ to the more robust https://pokeapi.co/ which enables shinies and gen based sprites. The old image server is now used as a fallback. 
 
+Shiny mode: off, on (default), all. On means that if a pokepaste pokemon contains "Shiny: Yes" in it's text, the extension will swap in the shiny artwork. All replaces every single image with it's shiny art. Off means it doesn't run, the default behavior of pokepaste.
+
+Sprites mode: off or on (default). The pokeapi gives us access to sprite artwork for older generations (1-5). When turned on, the extension will look for the format tag, for example "gen1ou", which will resolve to gen 1 and the pokemon yellow sprites replacing all the images. Works with shinies for gens 2-5.
+
+
 ## Version 1.1.2
 Published 2026 04 16
 Added floette-eternal to default replacement mode.

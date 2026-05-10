@@ -305,19 +305,28 @@ function encodeName(name) {
 }
 
 async function getImageUrlChiyuk(quality, route) {
-    return `https://chiy.uk/${quality}/${route}`;
+    const url = `https://chiy.uk/${quality}/${route}`;
+    // arceus forms encode their type in the suffix (e.g. arceus-fire → fire)
+    let primaryType = null;
+    if (route.startsWith("arceus-")) {
+        primaryType = route.split("-")[1];
+    }
+    return { url, primaryType };
 }
 
 async function getImageUrlPokeApi(shiny, format, route) {
-    let url = `https://pokeapi.co/api/v2/pokemon/${route}`;
+    let apiUrl = `https://pokeapi.co/api/v2/pokemon/${route}`;
     let r = "";
+    let primaryType = null;
     try {
         //console.log(`test: ${route}`);
-        const response = await fetch(url);
+        const response = await fetch(apiUrl);
         if (!response.ok) {
             throw new Error(`PokeAPI error: ${response.status}`);
         }
         const data = await response.json();
+        const slot1 = data?.types?.find(t => t.slot === 1);
+        primaryType = slot1?.type?.name ?? null;
         //console.log(`result: ${result}`);
         // so now we have a response we can try to grab the art
         //r = result["sprites"]["official-artwork"]["front_default"];
@@ -358,7 +367,7 @@ async function getImageUrlPokeApi(shiny, format, route) {
     } catch (error) {
         console.error(error.message);
     }
-    return r;
+    return { url: r, primaryType };
 }
 
 // function that replaces the image sources
@@ -369,31 +378,87 @@ async function replaceImage(shiny, format, q, imgElement, pokemon_name) {
     //const imageUrl = `https://chiy.uk/${q}/${route}`;
     // lets try pokeapi, hopefully our encoded name is what works
     // have chiyuk as fallback for some missing art
-    //(route in missingPokeApi) 
-    let imageUrl = 
+    //(route in missingPokeApi)
+    let result =
         missingPokeApi.includes(route)
-        ? await getImageUrlChiyuk(q, route)  
+        ? await getImageUrlChiyuk(q, route)
         : await getImageUrlPokeApi(shiny, format, route);
 
-    if (imageUrl === "") {
-        imageUrl = await getImageUrlChiyuk(q, route);
+    if (!result.url) {
+        result = await getImageUrlChiyuk(q, route);
     }
-    //console.log(`imageUrl: ${imageUrl}`);
-    img.src = imageUrl;
+    //console.log(`imageUrl: ${result.url}`);
+    img.src = result.url;
     img.onload = function() {
         // the image loaded successfully
-        imgElement.src = imageUrl;
-        console.log(`replaced: ${imageUrl} ${pokemon_name} ${q}`);
+        imgElement.src = result.url;
+        console.log(`replaced: ${result.url} ${pokemon_name} ${q}`);
     };
     img.onerror = function() {
         // an error occurred while loading the image (e.g., 403 Forbidden)
-        console.error('Image failed to load: ' + imageUrl);
+        console.error('Image failed to load: ' + result.url);
     };
+    return result.primaryType;
 }
 
 async function replacePokemon(shiny, format, q, pokemon, pokemon_name) {
     const imgElement = pokemon.querySelector('.img-pokemon');
-    await replaceImage(shiny, format, q, imgElement, pokemon_name);
+    return await replaceImage(shiny, format, q, imgElement, pokemon_name);
+}
+
+// wrap the pokemon name in <span class="type-X"> when pokepast.es didn't.
+// pokepast.es already styles .type-* classes, so no extra css needed.
+function wrapPokemonName(pokemon, primaryType) {
+    if (!primaryType) return;
+    // pokemon text is inside the pretag of the pokemon article
+    const pre = pokemon.querySelector('pre');
+    if (!pre || !pre.firstChild) return;
+    const first = pre.firstChild;
+    // already wrapped (firstChild is a <span>), or unexpected node — skip
+    if (first.nodeType !== Node.TEXT_NODE) return;
+
+    const text = first.nodeValue;
+    // boundary precedence: " @" (item), " (" (gender/nickname), or trim before newline
+    const at = text.indexOf(' @');
+    const paren = text.indexOf(' (');
+    let boundary;
+    if (at !== -1 && (paren === -1 || at < paren)) {
+        boundary = at;
+    } else if (paren !== -1) {
+        boundary = paren;
+    } else {
+        const nl = text.indexOf('\n');
+        const end = nl === -1 ? text.length : nl;
+        boundary = text.substring(0, end).trimEnd().length;
+    }
+    if (boundary <= 0) return;
+
+    const displayName = text.substring(0, boundary);
+    const rest = text.substring(boundary);
+
+    const nameSpan = document.createElement('span');
+    nameSpan.className = `type-${primaryType}`;
+    nameSpan.textContent = displayName;
+
+    // pokepast.es also colors the parenthesized species after a nickname
+    // (e.g. "volc (Volcarona)"). Detect " (Species)..." and wrap species too.
+    // Gender markers (F)/(M) live in a <span class="gender-*">, not the text node,
+    // so they won't match here.
+    const speciesMatch = rest.match(/^(\s*\()([^)]+)(\)[\s\S]*)$/);
+    if (speciesMatch) {
+        const [, prefix, species, tail] = speciesMatch;
+        const speciesSpan = document.createElement('span');
+        speciesSpan.className = `type-${primaryType}`;
+        speciesSpan.textContent = species;
+
+        first.nodeValue = tail;
+        pre.insertBefore(nameSpan, first);
+        pre.insertBefore(document.createTextNode(prefix), first);
+        pre.insertBefore(speciesSpan, first);
+    } else {
+        first.nodeValue = rest;
+        pre.insertBefore(nameSpan, first);
+    }
 }
 
 function appendItemImage(pokemon, itemUrl) {
@@ -595,6 +660,7 @@ async function main(imageQuality, replaceAll, shiny, sprites) {
             //let firstLine = text.split("\n")[0].trim();
             let firstNewLine = text.indexOf("\n");
             let firstLine = text.substring(0, firstNewLine).trim();
+            console.log("firstline: ", firstLine);
             let rest = text.substring(firstNewLine + 1);
             const { name, item } = parsePokemonInfo(firstLine);
 
@@ -622,7 +688,8 @@ async function main(imageQuality, replaceAll, shiny, sprites) {
             // also if we have shiny set to true
             // or if gen is true
             if(shouldReplacePokemon(name, replaceAll) || s || g) {
-                await replacePokemon(s, f, quality, pokemon, name);
+                const primaryType = await replacePokemon(s, f, quality, pokemon, name);
+                wrapPokemonName(pokemon, primaryType);
             }
         })
     );
