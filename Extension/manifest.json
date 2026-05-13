@@ -9,7 +9,10 @@
   "content_scripts": [
     {
       "matches": ["https://pokepast.es/*"],
-      "js": ["lib/browser-polyfill.js", "content.js"]
+      "js": [
+        "lib/browser-polyfill.js",
+        "content.js"
+      ]
     }
   ],
   "action": {

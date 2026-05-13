@@ -18,8 +18,9 @@ make sure to enable permissions on Firefox.
 
 ## Features
 - [x] unify codebase for Blink and Gecko
-- [ ] shiny (via pokeapi)
-- [ ] name colors
+- [x] shiny (via pokeapi)
+- [x] sprites (gens 1 to 5)
+- [x] name colors
 - [ ] group thinking, system design refactor
 - [ ] april fools, CAP art?
 
