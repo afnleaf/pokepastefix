@@ -346,7 +346,15 @@ async function getPokeApi(shiny, format, route) {
 // also returns the pokemon type, could make that work better
 // try primary url; on error fall back to backup url once.
 function replaceImage(url, backupUrl, q, imgElement, pokemon_name) {
+    // pokepast.es boxes .img-pokemon at 150x150; contain preserves the
+    // natural aspect for non-square sources (e.g. gen-5 animated sprites)
+    imgElement.style.objectFit = 'contain';
     imgElement.onload = () => {
+        // pixel sprites scaled to 150px look blurry under default smoothing.
+        // hand-drawn art (chiy.uk, or pokeapi /other/* = official-artwork/home/showdown)
+        // is high-res and should keep default rendering.
+        const isPixel = !/chiy\.uk|\/other\//.test(imgElement.currentSrc);
+        imgElement.style.imageRendering = isPixel ? 'pixelated' : 'auto';
         console.log(`replaced: ${imgElement.src} ${pokemon_name} ${q}`);
     }
     imgElement.onerror = () => {
