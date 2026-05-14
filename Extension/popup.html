@@ -9,34 +9,61 @@
     <script src="/popup.js"></script>
 </head>
 <body>
-    <div>
-        <label for="imageQuality">Image Quality:</label>
-        <select id="imageQuality">
-            <option value="0">Low</option>
-            <option value="1">Full</option>
-        </select>
-    </div>
-    <div>
-        <label for="replaceAll">Replace All:</label>
-        <select id="replaceAll">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
-    </div>
-    <div>
-        <label for="shiny">Shiny:</label>
-        <select id="shiny">
-            <option value="0">Off</option>
-            <option value="1">On</option>
-            <option value="2">All</option>
-        </select>
-    </div>
-    <div>
-        <label for="sprites">Sprites:</label>
-        <select id="sprites">
-            <option value="0">Off</option>
-            <option value="1">On</option>
-        </select>
-    </div>
+    <header class="header">
+        <img class="logo" src="assets/icons/icon32.png" alt="" width="32" height="32">
+        <div class="header-text">
+            <div class="title">pokepastefix</div>
+            <div class="version"></div>
+        </div>
+    </header>
+    <main class="options">
+        <fieldset class="option">
+            <legend>Image Quality:</legend>
+            <small class="help">Low = 256px, Full = full size.</small>
+            <div class="segmented">
+                <input type="radio" id="imageQuality-0" name="imageQuality" value="0">
+                <label for="imageQuality-0">Low</label>
+                <input type="radio" id="imageQuality-1" name="imageQuality" value="1">
+                <label for="imageQuality-1">Full</label>
+            </div>
+        </fieldset>
+        <fieldset class="option">
+            <legend>Replace All:</legend>
+            <small class="help">No: only fix missing. Yes: replace every Pokemon.</small>
+            <div class="segmented">
+                <input type="radio" id="replaceAll-0" name="replaceAll" value="0">
+                <label for="replaceAll-0">No</label>
+                <input type="radio" id="replaceAll-1" name="replaceAll" value="1">
+                <label for="replaceAll-1">Yes</label>
+            </div>
+        </fieldset>
+        <fieldset class="option">
+            <legend>Shiny:</legend>
+            <small class="help">Off: none. On: follow paste. All: force all shiny.</small>
+            <div class="segmented">
+                <input type="radio" id="shiny-0" name="shiny" value="0">
+                <label for="shiny-0">Off</label>
+                <input type="radio" id="shiny-1" name="shiny" value="1">
+                <label for="shiny-1">On</label>
+                <input type="radio" id="shiny-2" name="shiny" value="2">
+                <label for="shiny-2">All</label>
+            </div>
+        </fieldset>
+        <fieldset class="option">
+            <legend>Sprites:</legend>
+            <small class="help">Pixel sprites matching the format's gen (1&ndash;5).</small>
+            <div class="segmented">
+                <input type="radio" id="sprites-0" name="sprites" value="0">
+                <label for="sprites-0">Off</label>
+                <input type="radio" id="sprites-1" name="sprites" value="1">
+                <label for="sprites-1">On</label>
+            </div>
+        </fieldset>
+    </main>
+    <footer class="footer">
+        <a class="kofi" href="https://ko-fi.com/afnleaf" target="_blank" rel="noopener noreferrer">
+            <img src="assets/support_me_on_kofi_beige.png" alt="Support me on Ko-fi">
+        </a>
+    </footer>
 </body>
 </html>
