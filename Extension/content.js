@@ -1,247 +1,249 @@
-// pokemon missing from pokepast.es
-const replacements = new Set([
-    "poltchageist",
-    "sinistcha",
-    "sinistcha-masterpiece",
-    "ursaluna-bloodmoon",
-    "okidogi",
-    "munkidori",
-    "fezandipiti",
-    "ogerpon",
-    //"ogerpon-cornerstone",
-    //"ogerpon-hearthflame",
-    //"ogerpon-wellspring",
-    "growlithe-hisui",
-    "arcanine-hisui",
-    "voltorb-hisui",
-    "electrode-hisui",
-    "typhlosion-hisui",
-    "qwilfish-hisui",
-    "overqwil",
-    "sneasel-hisui",
-    "samurott-hisui",
-    "lilligant-hisui",
-    "zorua-hisui",
-    "zoroark-hisui",
-    "braviary-hisui",
-    "sliggoo-hisui",
-    "goodra-hisui",
-    "avalugg-hisui",
-    "decidueye-hisui",
-    "archaludon",
-    "hydrapple",
-    "iron boulder",
-    "iron crown",
-    "raging bolt",
-    "gouging fire",
-    "terapagos",
-    "terapagos-terastal",
-    "terapagos-stellar",
-    "walking wake",
-    "iron leaves",
-    "sirfetch’d",
-    "zygarde-10%",
-    "zygarde-complete",
-    "greninja-ash",
-    "greninja-bond",
-    "pecharunt",
-    "arceus-bug",
-    "arceus-dark",
-    "arceus-dragon",
-    "arceus-electric",
-    "arceus-fairy",
-    "arceus-fighting",
-    "arceus-fire",
-    "arceus-flying",
-    "arceus-ghost",
-    "arceus-grass",
-    "arceus-ground",
-    "arceus-ice",
-    "arceus-poison",
-    "arceus-psychic",
-    "arceus-rock",
-    "arceus-steel",
-    "arceus-water",
-    "dialga-origin",
-    "palkia-origin",
-    "magearna-original",
-    "magearna-mega",
-    "magearna-original-mega",
-    "greninja-battle-bond",
-    "ogerpon-cornerstone-mask",
-    "ogerpon-hearthflame-mask",
-    "ogerpon-wellspring-mask",
-    // Pokemon ZA/Champions additions
-    "raichu-mega-x",
-    "raichu-mega-y",    
-    "clefable-mega",    
-    "victreebel-mega",  
-    "starmie-mega",     
-    "dragonite-mega",   
-    "meganium-mega",    
-    "feraligatr-mega",  
-    "skarmory-mega",    
-    "chimecho-mega",    
-    "absol-mega-z",     
-    "staraptor-mega",   
-    "garchomp-mega-z",  
-    "lucario-mega-z",   
-    "froslass-mega",    
-    "heatran-mega",     
-    "darkrai-mega",     
-    "emboar-mega",      
-    "excadrill-mega",   
-    "scolipede-mega",   
-    "scrafty-mega",     
-    "eelektross-mega",  
-    "chandelure-mega",  
-    "golurk-mega",      
-    "chesnaught-mega",  
-    "delphox-mega",     
-    "greninja-mega",    
-    "pyroar-mega",      
-    "floette-mega",
-    "floette-eternal",
-    "meowstic-mega",    
-    //"meowstic-m-mega",    
-    //"meowstic-f-mega",    
-    "malamar-mega",     
-    "barbaracle-mega",  
-    "dragalge-mega",    
-    "hawlucha-mega",    
-    "zygarde-mega",     
-    "crabominable-mega",
-    "golisopod-mega",   
-    "drampa-mega",      
-    "zeraora-mega",             
-    "falinks-mega",             
-    "scovillain-mega",          
-    "glimmora-mega",            
-    "tatsugiri-curly-mega",           
-    "tatsugiri-droopy-mega",    
-    "tatsugiri-stretchy-mega",  
-    "baxcalibur-mega",
-    "great-tusk",   
-    "scream-tail",  
-    "brute-bonnet", 
-    "flutter-mane", 
-    "slither-wing",
-    "sandy-shocks", 
-    "iron-treads",
-    "iron-bundle",  
-    "iron-hands",
-    "iron-jugulis", 
-    "iron-moth",
-    "iron-thorns",
-    "raging-bolt",
-    "gouging-fire",
-    "walking-wake",
-    "iron-leaves",
-    "iron-boulder",
-    "iron-crown",
-]);
+// content.js
+// the main extension script
+// our data.js is set to window global mode cause we don't want to use modules
 
-// incorrectly spelled cases point to the correct spelling
-const badnames = {
-    "walking wake":             "walking-wake",
-    "gouging fire":             "gouging-fire",
-    "raging bolt":              "raging-bolt",
-    "iron leaves":              "iron-leaves",
-    "iron boulder":             "iron-boulder",
-    "iron crown":               "iron-crown",
-    "greninja-bond":            "greninja-battle-bond",
-    "sinistcha-masterpiece":    "sinistcha",
-    "cornerstone mask ogerpon": "ogerpon-cornerstone-mask",
-    "hearthflame mask ogerpon": "ogerpon-hearthflame-mask",
-    "wellspring mask ogerpon":  "ogerpon-wellspring-mask",
-    "origin forme dialga":      "dialga-origin",
-    "origin forme palkia":      "palkia-origin",
-    "ogerpon-cornerstone":      "ogerpon-cornerstone-mask",
-    "ogerpon-wellspring":       "ogerpon-wellspring-mask",
-    "ogerpon-hearthflame":      "ogerpon-hearthflame-mask",
-    "meowstic-m-mega":          "meowstic-mega",
-    "meowstic-f-mega":          "meowstic-mega",
-    "mega floette":             "floette-mega"
-};
+// API ----------------------------------------------------------------------- /
+// https://pokeapi.co/api/v2/pokemon/1/ is a good example of the full response
+// we are currently missing any kind of gendered resolution
 
-// for art we need to use chiy.uk for because it is missing from PokeAPI
-const missingPokeApi = [
-    "arceus-bug",
-    "arceus-dark",
-    "arceus-dragon",
-    "arceus-electric",
-    "arceus-fairy",
-    "arceus-fighting",
-    "arceus-fire",
-    "arceus-flying",
-    "arceus-ghost",
-    "arceus-grass",
-    "arceus-ground",
-    "arceus-ice",
-    "arceus-poison",
-    "arceus-psychic",
-    "arceus-rock",
-    "arceus-steel",
-    "arceus-water"
-];
+// this is to grab the Ken Sugimori art, typically used for gens 6-9
+function resolveHandDrawn(sprites, shiny) {
+    const t = shiny ? "front_shiny" : "front_default";
+    return sprites?.other?.["official-artwork"]?.[t] ||
+           sprites?.other?.["home"]?.[t] ||
+           sprites?.other?.["showdown"]?.[t] ||
+           sprites?.[t];
+}
 
-const items = {
-    "cornerstone mask": "https://www.serebii.net/itemdex/sprites/sv/cornerstonemask.png",
-    "hearthflame mask": "https://www.serebii.net/itemdex/sprites/sv/hearthflamemask.png",
-    "wellspring mask": "https://www.serebii.net/itemdex/sprites/sv/wellspringmask.png",
-    "fairy feather": "https://www.serebii.net/itemdex/sprites/sv/fairyfeather.png",
-    "lustrous globe": "https://www.serebii.net/itemdex/sprites/sv/lustrousglobe.png",
-    "adamant crystal": "https://www.serebii.net/itemdex/sprites/sv/adamantcrystal.png",
-    "griseous core": "https://www.serebii.net/itemdex/sprites/sv/griseouscore.png",
-    // new mega stones
-    "raichunite x": "https://www.serebii.net/pokedex-sv/evoicon/mega26x.png",
-    "raichunite y": "https://www.serebii.net/pokedex-sv/evoicon/mega26y.png",
-    "clefablite": "https://www.serebii.net/pokedex-sv/evoicon/mega36.png",
-    "victreebelite": "https://www.serebii.net/pokedex-sv/evoicon/mega71.png",
-    "starminite": "https://www.serebii.net/pokedex-sv/evoicon/mega121.png",
-    "dragoninite": "https://www.serebii.net/pokedex-sv/evoicon/mega149.png",
-    "meganiumite": "https://www.serebii.net/pokedex-sv/evoicon/mega154.png",
-    "feraligite": "https://www.serebii.net/pokedex-sv/evoicon/mega160.png",
-    "skarmorite": "https://www.serebii.net/pokedex-sv/evoicon/mega227.png",
-    "chimechite": "https://www.serebii.net/pokedex-sv/evoicon/mega358.png",
-    "absolite z": "https://www.serebii.net/pokedex-sv/evoicon/mega359z.png",
-    "staraptite": "https://www.serebii.net/pokedex-sv/evoicon/mega398.png",
-    "garchompite z": "https://www.serebii.net/pokedex-sv/evoicon/mega445z.png",
-    "lucarionite z": "https://www.serebii.net/pokedex-sv/evoicon/mega448z.png",
-    "froslassite": "https://www.serebii.net/pokedex-sv/evoicon/mega478.png",
-    "heatranite": "https://www.serebii.net/pokedex-sv/evoicon/mega485.png",
-    "darkranite": "https://www.serebii.net/pokedex-sv/evoicon/mega491.png",
-    "emboarite": "https://www.serebii.net/pokedex-sv/evoicon/mega500.png",
-    "excadrite": "https://www.serebii.net/pokedex-sv/evoicon/mega530.png",
-    "scolipite": "https://www.serebii.net/pokedex-sv/evoicon/mega545.png",
-    "scraftinite": "https://www.serebii.net/pokedex-sv/evoicon/mega560.png",
-    "eelektrossite": "https://www.serebii.net/pokedex-sv/evoicon/mega604.png",
-    "chandelurite": "https://www.serebii.net/pokedex-sv/evoicon/mega609.png",
-    "golurkite": "https://www.serebii.net/pokedex-sv/evoicon/mega623.png",
-    "delphoxite": "https://www.serebii.net/pokedex-sv/evoicon/mega655.png",
-    "chesnaughtite": "https://www.serebii.net/pokedex-sv/evoicon/mega652.png",
-    "greninjite": "https://www.serebii.net/pokedex-sv/evoicon/mega658.png",
-    "pyroarite": "https://www.serebii.net/pokedex-sv/evoicon/mega668.png",
-    "floettite": "https://www.serebii.net/pokedex-sv/evoicon/mega670.png",
-    "meowsticite": "https://www.serebii.net/pokedex-sv/evoicon/mega678.png",
-    "malamarite": "https://www.serebii.net/pokedex-sv/evoicon/mega687.png",
-    "barbaracite": "https://www.serebii.net/pokedex-sv/evoicon/mega689.png",
-    "dragalgite": "https://www.serebii.net/pokedex-sv/evoicon/mega691.png",
-    "hawluchanite": "https://www.serebii.net/pokedex-sv/evoicon/mega701.png",
-    "zygardite": "https://www.serebii.net/pokedex-sv/evoicon/mega718.png",
-    "crabominite": "https://www.serebii.net/pokedex-sv/evoicon/mega740.png",
-    "golisopite": "https://www.serebii.net/pokedex-sv/evoicon/mega768.png",
-    "drampanite": "https://www.serebii.net/pokedex-sv/evoicon/mega780.png",
-    "magearnite": "https://www.serebii.net/pokedex-sv/evoicon/mega801.png",
-    "zeraorite": "https://www.serebii.net/pokedex-sv/evoicon/mega807.png",
-    "falinksite": "https://www.serebii.net/pokedex-sv/evoicon/mega870.png",
-    "scovillainite": "https://www.serebii.net/pokedex-sv/evoicon/mega952.png",
-    "glimmoranite": "https://www.serebii.net/pokedex-sv/evoicon/mega970.png",
-    "tatsugirinite": "https://www.serebii.net/pokedex-sv/evoicon/mega978.png",
-    "baxcalibrite": "https://www.serebii.net/pokedex-sv/evoicon/mega998.png",
-};
+// grabs the right url for the sprie image, used for gens 1-5
+// gen 1 lacks shinies, so we have to branch the logic there
+// see data.js:GEN_LOOKUP for the implementation of the lookup table
+// we have gen (1-5), game, animated and other boolean properties
+// each gen has diff sprite art, ex: Ruby/Sapphire, Emerald and FRLG
+function resolvePixelSprite(sprites, format, shiny) {
+    const l = GEN_LOOKUP[format];
+    const v = sprites.versions?.[l.gen]?.[l.game];
+    const node = l.animated ? v?.["animated"] : v;
+    const wantShiny = shiny && !l.noShiny;
+    const primary = wantShiny
+        ? (l.transparent ? "front_shiny_transparent" : "front_shiny")
+        : (l.transparent ? "front_transparent"       : "front_default");
+    const secondary = wantShiny ? "front_shiny" : "front_default";
+    return node?.[primary] || node?.[secondary] || sprites?.[secondary];
+}
 
-// encode as route
+// purely a fetching function for pokeapi
+// we need the full response to access all the art urls and the pokemon type
+async function fetchPokeApiData(route) {
+    let apiUrl = `https://pokeapi.co/api/v2/pokemon/${route}`;
+    //console.log(`test: ${route}`);
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+        throw new Error(`PokeAPI error: ${response.status}`);
+    }
+    return await response.json();
+}
+
+// our main API hosted at https://pokeapi.co/
+async function getPokeApi(shiny, format, route) {
+    let url = "";
+    let primaryType = null;
+    try {
+        let data = await fetchPokeApiData(route);
+        //if (data) is empty?
+        //console.log(`data: ${data}`);
+        // get the pokemon's primary type
+        const slot1 = data?.types?.find(t => t.slot === 1);
+        primaryType = slot1?.type?.name ?? null;
+        // so now we have a response we can try to grab the art
+        const sprites = data?.sprites;
+
+        if(format !== null) {
+            url = resolvePixelSprite(sprites, format, shiny);
+        } else {
+            url = resolveHandDrawn(sprites, shiny);
+        }
+            
+        //console.log(`pokeapi url: ${r}`);
+    } catch (error) {
+        console.error(error.message);
+    }
+    return { url, primaryType };
+}
+
+// our fallback server, self-hosted at https://chiy.uk/
+// also used for arceus formes
+async function getChiyukApi(quality, route) {
+    const url = `https://chiy.uk/${quality}/${route}`;
+    // arceus forms encode their type in the suffix (e.g. arceus-fire → fire)
+    let primaryType = null;
+    if (route.startsWith("arceus-")) {
+        primaryType = route.split("-")[1];
+    }
+    return { url, primaryType };
+}
+
+// DOM ----------------------------------------------------------------------- /
+
+// function that replaces the image sources
+// also returns the pokemon type, could make that work better
+// try primary url; on error fall back to backup url once.
+const chiyukRegex = /chiy\.uk|\/other\//;
+function replaceImage(url, backupUrl, imgElement, pokemon_name, quality) {
+    // pokepast.es boxes .img-pokemon at 150x150
+    // contain preserves the natural aspect for non-square sources like sprites
+    imgElement.style.objectFit = 'contain';
+    imgElement.onload = () => {
+        // pixel sprites look blurry when scaled, so we use pixelated rendering.
+        // non pixel art should not use pixelated scaling
+        const isPixelSprite = !chiyukRegex.test(imgElement.currentSrc);
+        imgElement.style.imageRendering = isPixelSprite ? 'pixelated' : 'auto';
+        console.log(`replaced: ${imgElement.src} ${pokemon_name} ${quality}`);
+    }
+    imgElement.onerror = () => {
+        if (backupUrl && imgElement.src !== backupUrl) {
+            console.warn(`primary failed, trying backup: ${backupUrl}`);
+            imgElement.src = backupUrl;
+        } else {
+            console.error('Image failed to load: ' + imgElement.src);
+        }
+    }
+    imgElement.src = url;
+}
+
+async function replacePokemon(shiny, format, pokemon, pokemon_name, quality) {
+    let route = encodeName(pokemon_name);
+    //console.log("encoded name: ", route);
+    
+    // arceus forms: chiy.uk has type-tinted art; 
+    // pokeapi only has the default sprite.
+    //(route in missingPokeApi)
+    const preferChiyuk = missingPokeApi.includes(route);
+    // get both api results
+    const pokeapi = preferChiyuk 
+        ? null 
+        : await getPokeApi(shiny, format, route);
+    const chiyuk = await getChiyukApi(quality, route);
+    
+    // decide what is the main url and what is the backup
+    let main, backup;
+    if (preferChiyuk) {
+        main = chiyuk;
+        backup = null;
+    } else if (pokeapi?.url) {
+        main = pokeapi;
+        backup = chiyuk;
+    } else {
+        main = chiyuk;
+        backup = pokeapi;
+    }
+
+    const imgElement = pokemon.querySelector('.img-pokemon');
+    
+    replaceImage(
+        main.url, 
+        backup?.url || null, 
+        imgElement, 
+        pokemon_name,
+        quality
+    );
+    
+    wrapPokemonName(
+        pokemon, 
+        main.primaryType || backup?.primaryType
+    );
+}
+
+// find the index where the pokemon name ends so we can apply a type span to it
+function findPokemonNameEnd(text) {
+    // boundary precedence: " @" (item), " (" (gender/nickname), or trim before newline
+    // basically decide where to start span
+    // a name can be either: pokemon_name @ item or nickname (pokemon_name) @ item
+    // or even nickname (pokemon_name) (gender f or m) @ item
+    const at = text.indexOf(' @');
+    const paren = text.indexOf(' (');
+
+    // if @ exists and (parentheses don't or @ is before first parenthese)
+    if (at !== -1 && (paren === -1 || at < paren)) {
+        return at;
+    }
+    if (paren !== -1) {
+        return paren;
+    }
+    const end = text.indexOf('\n') === -1
+        ? text.length
+        : text.indexOf('\n');
+    return text.substring(0, end).trimEnd().length;
+}
+
+function createTypeSpan(text, type) {
+    const span = document.createElement('span');
+    span.className = `type-${type}`;
+    span.textContent = text;
+    return span;
+}
+
+const speciesRegex = /^(\s*\()([^)]+)(\)[\s\S]*)$/;
+// wrap the pokemon name in <span class="type-X"> if pokepaste didn't
+// pokepaste already styles .type-* classes, so no extra css needed
+function wrapPokemonName(pokemon, type) {
+    // early returns
+    // requires a type to add the correct color
+    if (!type) return;
+    // pokemon text is inside the pre tag of the pokemon article
+    const pre = pokemon.querySelector('pre');
+    if (!pre || !pre.firstChild) return;
+    // we operate on the first child of the pre node
+    const a = pre.firstChild;
+    // expect text, not <span> or anything else
+    if (a.nodeType !== Node.TEXT_NODE) return;
+
+    const text = a.nodeValue;
+    const boundary = findPokemonNameEnd(text);
+    if (boundary <= 0) return;
+
+    const name = text.substring(0, boundary);
+    const rest = text.substring(boundary);
+
+    const speciesMatch = rest.match(speciesRegex);
+    if (speciesMatch) {
+        const [, prefix, species, tail] = speciesMatch;
+        a.nodeValue = name + prefix;
+        const speciesSpan = createTypeSpan(species, type);
+        pre.insertBefore(speciesSpan, a.nextSibling);
+        if (tail) {
+            pre.insertBefore(document.createTextNode(tail), speciesSpan.nextSibling);
+        }
+    } else if (rest.match(/^\s*\(\s*$/) && a.nextSibling?.className.startsWith('type-')) {
+        return;
+    } else {
+        a.nodeValue = rest;
+        pre.insertBefore(createTypeSpan(name, type), a);
+    }
+}
+
+function appendItemImage(pokemon, itemUrl) {
+    // create the image element
+    let imgElement = document.createElement('img');
+    imgElement.className = 'img-item';
+    imgElement.src = `${itemUrl}`;
+    // have to add custom styles to our appended images
+    // the new mega stone art from serebii.net was getting squished
+    imgElement.style.width = 'auto';
+    imgElement.style.height = 'auto';
+    imgElement.style.maxWidth = '40px';
+    imgElement.style.maxHeight = '40px';
+
+    // find the div to append it to
+    const imgContainer = pokemon.querySelector("div.img");
+    if(imgContainer) {
+        imgContainer.appendChild(imgElement);
+    }
+}
+
+
+// utils --------------------------------------------------------------------- /
+// encode pokemon name as route
 function encodeName(name) {
     //if (!name) return "unknown";
     
@@ -276,211 +278,7 @@ function encodeName(name) {
     return name;
 }
 
-async function getImageUrlChiyuk(quality, route) {
-    const url = `https://chiy.uk/${quality}/${route}`;
-    // arceus forms encode their type in the suffix (e.g. arceus-fire → fire)
-    let primaryType = null;
-    if (route.startsWith("arceus-")) {
-        primaryType = route.split("-")[1];
-    }
-    return { url, primaryType };
-}
-
-async function fetchPokeApiData(route) {
-    let apiUrl = `https://pokeapi.co/api/v2/pokemon/${route}`;
-    //console.log(`test: ${route}`);
-    const response = await fetch(apiUrl);
-    if (!response.ok) {
-        throw new Error(`PokeAPI error: ${response.status}`);
-    }
-    return await response.json();
-}
-
-function resolveHandDrawn(sprites, shiny) {
-    const t = shiny ? "front_shiny" : "front_default";
-    return sprites?.other?.["official-artwork"]?.[t] ||
-           sprites?.other?.["home"]?.[t] ||
-           sprites?.other?.["showdown"]?.[t] ||
-           sprites?.[t];
-}
-
-function resolvePixelSprite(sprites, format, shiny) {
-    const l = GEN_LOOKUP[format];
-    const v = sprites.versions?.[l.gen]?.[l.sub];
-    const node = l.subsub ? v?.[l.subsub] : v;
-    const wantShiny = shiny && !l.noShiny;
-    const primary = wantShiny
-        ? (l.transparent ? "front_shiny_transparent" : "front_shiny")
-        : (l.transparent ? "front_transparent"       : "front_default");
-    const secondary = wantShiny ? "front_shiny" : "front_default";
-    return node?.[primary] || node?.[secondary] || sprites?.[secondary];
-}
-
-async function getPokeApi(shiny, format, route) {
-    let image = "";
-    let primaryType = null;
-    try {
-        let data = await fetchPokeApiData(route);
-        //if (data) is empty?
-        //console.log(`data: ${data}`);
-        // get the pokemon's primary type
-        const slot1 = data?.types?.find(t => t.slot === 1);
-        primaryType = slot1?.type?.name ?? null;
-        // so now we have a response we can try to grab the art
-        const sprites = data?.sprites;
-
-        if(format !== null) {
-            image = resolvePixelSprite(sprites, format, shiny);
-        } else {
-            image = resolveHandDrawn(sprites, shiny);
-        }
-            
-        //console.log(`pokeapi url: ${r}`);
-    } catch (error) {
-        console.error(error.message);
-    }
-    return { url: image, primaryType };
-}
-
-// function that replaces the image sources
-// also returns the pokemon type, could make that work better
-// try primary url; on error fall back to backup url once.
-function replaceImage(url, backupUrl, q, imgElement, pokemon_name) {
-    // pokepast.es boxes .img-pokemon at 150x150; contain preserves the
-    // natural aspect for non-square sources (e.g. gen-5 animated sprites)
-    imgElement.style.objectFit = 'contain';
-    imgElement.onload = () => {
-        // pixel sprites scaled to 150px look blurry under default smoothing.
-        // hand-drawn art (chiy.uk, or pokeapi /other/* = official-artwork/home/showdown)
-        // is high-res and should keep default rendering.
-        const isPixel = !/chiy\.uk|\/other\//.test(imgElement.currentSrc);
-        imgElement.style.imageRendering = isPixel ? 'pixelated' : 'auto';
-        console.log(`replaced: ${imgElement.src} ${pokemon_name} ${q}`);
-    }
-    imgElement.onerror = () => {
-        if (backupUrl && imgElement.src !== backupUrl) {
-            console.warn(`primary failed, trying backup: ${backupUrl}`);
-            imgElement.src = backupUrl;
-        } else {
-            console.error('Image failed to load: ' + imgElement.src);
-        }
-    }
-    imgElement.src = url;
-}
-
-async function replacePokemon(shiny, format, q, pokemon, pokemon_name) {
-    const imgElement = pokemon.querySelector('.img-pokemon');
-
-    let route = encodeName(pokemon_name);
-    //console.log("encoded name: ", route);
-    
-    // arceus forms: chiy.uk has type-tinted art; 
-    // pokeapi only has the default sprite.
-    //(route in missingPokeApi)
-    const preferChiyuk = missingPokeApi.includes(route);
-    const pokeapi = preferChiyuk ? null : await getPokeApi(shiny, format, route);
-    const chiyuk = await getImageUrlChiyuk(q, route);
-    // need to add backup url, mainUrl, backupUrl
-    const main = preferChiyuk ? chiyuk : (pokeapi?.url ? pokeapi : chiyuk);
-    const backup = main === chiyuk ? pokeapi : chiyuk;
-
-    replaceImage(main.url, backup?.url || null, q, imgElement, pokemon_name);
-    wrapPokemonName(pokemon, main.primaryType || backup?.primaryType);
-}
-
-// wrap the pokemon name in <span class="type-X"> when pokepast.es didn't.
-// pokepast.es already styles .type-* classes, so no extra css needed.
-function wrapPokemonName(pokemon, primaryType) {
-    if (!primaryType) return;
-    // pokemon text is inside the pretag of the pokemon article
-    const pre = pokemon.querySelector('pre');
-    if (!pre || !pre.firstChild) return;
-    const first = pre.firstChild;
-    // already wrapped (firstChild is a <span>), or unexpected node — skip
-    if (first.nodeType !== Node.TEXT_NODE) return;
-
-    const text = first.nodeValue;
-    // boundary precedence: " @" (item), " (" (gender/nickname), or trim before newline
-    const at = text.indexOf(' @');
-    const paren = text.indexOf(' (');
-    let boundary;
-    if (at !== -1 && (paren === -1 || at < paren)) {
-        boundary = at;
-    } else if (paren !== -1) {
-        boundary = paren;
-    } else {
-        const nl = text.indexOf('\n');
-        const end = nl === -1 ? text.length : nl;
-        boundary = text.substring(0, end).trimEnd().length;
-    }
-    if (boundary <= 0) return;
-
-    const displayName = text.substring(0, boundary);
-    const rest = text.substring(boundary);
-
-    const nameSpan = document.createElement('span');
-    nameSpan.className = `type-${primaryType}`;
-    nameSpan.textContent = displayName;
-
-    // pokepast.es also colors the parenthesized species after a nickname
-    // (e.g. "volc (Volcarona)"). Detect " (Species)..." and wrap species too.
-    // Gender markers (F)/(M) live in a <span class="gender-*">, not the text node,
-    // so they won't match here.
-    const speciesMatch = rest.match(/^(\s*\()([^)]+)(\)[\s\S]*)$/);
-    if (speciesMatch) {
-        const [, prefix, species, tail] = speciesMatch;
-        const speciesSpan = document.createElement('span');
-        speciesSpan.className = `type-${primaryType}`;
-        speciesSpan.textContent = species;
-
-        first.nodeValue = tail;
-        pre.insertBefore(nameSpan, first);
-        pre.insertBefore(document.createTextNode(prefix), first);
-        pre.insertBefore(speciesSpan, first);
-    } else {
-        first.nodeValue = rest;
-        pre.insertBefore(nameSpan, first);
-    }
-}
-
-function appendItemImage(pokemon, itemUrl) {
-    // create the image element
-    let imgElement = document.createElement('img');
-    imgElement.className = 'img-item';
-    imgElement.src = `${itemUrl}`;
-    // have to add custom styles to our appended images
-    // the new mega stone art from serebii.net was getting squished
-    imgElement.style.width = 'auto';
-    imgElement.style.height = 'auto';
-    imgElement.style.maxWidth = '40px';
-    imgElement.style.maxHeight = '40px';
-
-    // find the div to append it to
-    const imgContainer = pokemon.querySelector("div.img");
-    if(imgContainer) {
-        imgContainer.appendChild(imgElement);
-    }
-}
-
-function chooseImageQuality(imageQuality) {
-    // set imageQuality based on option
-    let q = "256"; 
-    switch(imageQuality) {
-        case 0:
-            q = "256";
-            break;
-        //case 1:
-        //    q = "1024";
-        //    break;
-        case 1:
-            q = "full"; 
-            break;
-        default:
-            q = "256"    
-    }
-    return q;
-}
-
+// parse --------------------------------------------------------------------- /
 const genderRegex = /\(F\)|\(M\)/gi;
 const nicknameRegex = /\(([^)]+)\)/gi;
 
@@ -523,11 +321,6 @@ function parsePokemonInfo(line) {
     return { name, item };
 }
 
-function shouldReplacePokemon(name, replaceAll) {
-    //return replaceAll || replacements.includes(name);
-    return (replaceAll || replacements.has(name));
-}
-
 // already lowercase
 function findShinyLine(text) {
     let i = text.indexOf("shiny:")
@@ -548,41 +341,6 @@ function findShinyLine(text) {
     }
     return false;
 }
-
-// simple lookup table to match what is found in sprites.version{}
-// transparent: prefer front_transparent / front_shiny_transparent (gens 1-2 bake a white bg into front_default)
-// noShiny: generation predates shinies — ignore shiny request rather than serving a non-gen sprite
-const GEN_LOOKUP = {
-    1: { 
-        gen: "generation-i",
-        sub: "yellow",
-        transparent: true, 
-        noShiny: true 
-    },
-    2: { 
-        gen: "generation-ii",
-        sub: "crystal",
-        transparent: true 
-    },
-    3: { 
-        gen: "generation-iii",
-        sub: "emerald"
-    },
-    4: { 
-        gen: "generation-iv",
-        sub: "platinum"
-    },
-    5: { 
-        gen: "generation-v",
-        sub: "black-white", 
-        subsub: "animated" 
-    },
-    // decided against the non sprite generations
-    //6: { gen: "generation-vi",      sub: "x-y" },
-    //7: { gen: "generation-vii",     sub: "ultra-sun-ultra-moon" },
-    //8: { gen: "generation-viii",    sub: ""
-    //9: { gen: "generation-ix",      sub: "scarlet"
-};
 
 function findFormat() {
     const aside = document.querySelector("aside");
@@ -616,6 +374,26 @@ function findFormat() {
     return gen;
 }
 
+// options ------------------------------------------------------------------- /
+function chooseImageQuality(imageQuality) {
+    // set imageQuality based on option
+    let q = "256"; 
+    switch(imageQuality) {
+        case 0:
+            q = "256";
+            break;
+        //case 1:
+        //    q = "1024";
+        //    break;
+        case 1:
+            q = "full"; 
+            break;
+        default:
+            q = "256"    
+    }
+    return q;
+}
+
 function chooseShiny(shiny, rest) {
     let s = false;
     switch (shiny) {
@@ -635,8 +413,8 @@ function chooseShiny(shiny, rest) {
     return s;
 }
 
+// main ---------------------------------------------------------------------- /
 async function main(imageQuality, replaceAll, shiny, sprites) {
-
     // --- OPTIONS ---
     // this is whack for variable names
     // set image quality based on option
@@ -677,15 +455,22 @@ async function main(imageQuality, replaceAll, shiny, sprites) {
             }
 
             // handle pokemon replacement if missing
+            // or replace all
             // also if we have shiny set to true
             // or if gen is true
-            if(shouldReplacePokemon(name, replaceAll) || s || g) {
-                await replacePokemon(s, f, q, pokemon, name);
+            if(
+                replacements.has(name) || 
+                replaceAll || 
+                s || 
+                g
+            ) {
+                await replacePokemon(s, f, pokemon, name, q);
             }
         })
     );
 }
 
+// entry point
 // retrieve options from browser storage
 browser.storage.sync.get({
     // defaults
@@ -706,4 +491,3 @@ browser.storage.sync.get({
 }).catch((error) => {
     console.error('Error retrieving options:', error);
 });
-

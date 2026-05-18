@@ -11,6 +11,7 @@
       "matches": ["https://pokepast.es/*"],
       "js": [
         "lib/browser-polyfill.js",
+        "data.js",
         "content.js"
       ]
     }
