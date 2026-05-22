@@ -189,6 +189,28 @@ function createTypeSpan(text, type) {
     return span;
 }
 
+function getFirstLine(pre) {
+    let line = "";
+    let node = pre.firstChild;
+
+    while (node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            const text = node.nodeValue;
+            const newlineIndex = text.indexOf('\n');
+            if (newlineIndex !== -1) {
+                line += text.substring(0, newlineIndex);
+                break;
+            }
+            line += text;
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+            line += node.textContent;
+        }
+        node = node.nextSibling;
+    }
+
+    return line;
+}
+
 // wrap the pokemon name in <span class="type-X"> if pokepaste didn't
 // pokepaste already styles .type-* classes, so no extra css needed
 function wrapPokemonName(pokemon, type) {
@@ -204,10 +226,9 @@ function wrapPokemonName(pokemon, type) {
     // expect text, not <span> or anything else
     if (textNode.nodeType !== Node.TEXT_NODE) return;
 
-    const text = textNode.nodeValue;
-
-    // extract species using the same logic as parsePokemonInfo
-    let species = text.trim();
+    // extract the full first line to get complete species info
+    const firstLine = getFirstLine(pre);
+    let species = firstLine.trim();
 
     // check if item exists
     if (species.includes("@")) {
@@ -227,20 +248,29 @@ function wrapPokemonName(pokemon, type) {
         species = species.substring(1, species.length - 1);
     }
 
-    // find where the species is in the original text
-    const speciesStart = text.indexOf(species);
-    if (speciesStart === -1) return;
-    const speciesEnd = speciesStart + species.length;
+    if (!species) return;
 
-    // split the text and wrap the species
-    const before = text.substring(0, speciesStart);
-    const after = text.substring(speciesEnd);
+    // find and wrap the species in the DOM
+    let node = textNode;
+    let found = false;
 
-    textNode.nodeValue = before;
-    const speciesSpan = createTypeSpan(species, type);
-    pre.insertBefore(speciesSpan, textNode.nextSibling);
-    if (after) {
-        pre.insertBefore(document.createTextNode(after), speciesSpan.nextSibling);
+    while (node && !found) {
+        if (node.nodeType === Node.TEXT_NODE) {
+            const idx = node.nodeValue.indexOf(species);
+            if (idx !== -1) {
+                const before = node.nodeValue.substring(0, idx);
+                const after = node.nodeValue.substring(idx + species.length);
+
+                node.nodeValue = before;
+                const speciesSpan = createTypeSpan(species, type);
+                pre.insertBefore(speciesSpan, node.nextSibling);
+                if (after) {
+                    pre.insertBefore(document.createTextNode(after), speciesSpan.nextSibling);
+                }
+                found = true;
+            }
+        }
+        node = node.nextSibling;
     }
 }
 
