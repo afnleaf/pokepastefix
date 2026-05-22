@@ -167,12 +167,18 @@ function findPokemonNameEnd(text) {
     if (at !== -1 && (paren === -1 || at < paren)) {
         return at;
     }
+    // if parenthese exists
     if (paren !== -1) {
         return paren;
     }
+    // end of the line is to the next newline or the end of the text
     const end = text.indexOf('\n') === -1
         ? text.length
         : text.indexOf('\n');
+    // then get the first line
+    // pretty sure we already have code that does this somewhere lol
+    // and lets be real grab the substring from the start of the text to "end"
+    // then, trim it? THEN get the length? HHAHHAHAHA this is hot garbage
     return text.substring(0, end).trimEnd().length;
 }
 
@@ -183,10 +189,10 @@ function createTypeSpan(text, type) {
     return span;
 }
 
-const speciesRegex = /^(\s*\()([^)]+)(\)[\s\S]*)$/;
 // wrap the pokemon name in <span class="type-X"> if pokepaste didn't
 // pokepaste already styles .type-* classes, so no extra css needed
 function wrapPokemonName(pokemon, type) {
+    console.log(`WRAP: ${pokemon}, ${type}`);
     // early returns
     // requires a type to add the correct color
     if (!type) return;
@@ -194,31 +200,47 @@ function wrapPokemonName(pokemon, type) {
     const pre = pokemon.querySelector('pre');
     if (!pre || !pre.firstChild) return;
     // we operate on the first child of the pre node
-    const a = pre.firstChild;
+    const textNode = pre.firstChild;
     // expect text, not <span> or anything else
-    if (a.nodeType !== Node.TEXT_NODE) return;
+    if (textNode.nodeType !== Node.TEXT_NODE) return;
 
-    const text = a.nodeValue;
-    const boundary = findPokemonNameEnd(text);
-    if (boundary <= 0) return;
+    const text = textNode.nodeValue;
 
-    const name = text.substring(0, boundary);
-    const rest = text.substring(boundary);
+    // extract species using the same logic as parsePokemonInfo
+    let species = text.trim();
 
-    const speciesMatch = rest.match(speciesRegex);
-    if (speciesMatch) {
-        const [, prefix, species, tail] = speciesMatch;
-        a.nodeValue = name + prefix;
-        const speciesSpan = createTypeSpan(species, type);
-        pre.insertBefore(speciesSpan, a.nextSibling);
-        if (tail) {
-            pre.insertBefore(document.createTextNode(tail), speciesSpan.nextSibling);
-        }
-    } else if (rest.match(/^\s*\(\s*$/) && a.nextSibling?.className.startsWith('type-')) {
-        return;
-    } else {
-        a.nodeValue = rest;
-        pre.insertBefore(createTypeSpan(name, type), a);
+    // check if item exists
+    if (species.includes("@")) {
+        species = species.split("@")[0].slice(0, -1);
+    }
+
+    // check if there is (F) or (M) in the name
+    const hasGender = genderRegex.test(species);
+    if (hasGender) {
+        species = species.replace(genderRegex, "").slice(0, -1);
+    }
+
+    // check if the pokemon has a nickname
+    const hasBothParentheses = species.includes("(") && species.includes(")");
+    if (hasBothParentheses) {
+        species = species.match(nicknameRegex)[0];
+        species = species.substring(1, species.length - 1);
+    }
+
+    // find where the species is in the original text
+    const speciesStart = text.indexOf(species);
+    if (speciesStart === -1) return;
+    const speciesEnd = speciesStart + species.length;
+
+    // split the text and wrap the species
+    const before = text.substring(0, speciesStart);
+    const after = text.substring(speciesEnd);
+
+    textNode.nodeValue = before;
+    const speciesSpan = createTypeSpan(species, type);
+    pre.insertBefore(speciesSpan, textNode.nextSibling);
+    if (after) {
+        pre.insertBefore(document.createTextNode(after), speciesSpan.nextSibling);
     }
 }
 
@@ -458,6 +480,8 @@ async function main(imageQuality, replaceAll, shiny, sprites) {
             // or replace all
             // also if we have shiny set to true
             // or if gen is true
+            // this conditional needs to be fixed, even if s is on
+            // why should they all get replaced? this is a bit more complex
             if(
                 replacements.has(name) || 
                 replaceAll || 

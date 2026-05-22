@@ -271,10 +271,13 @@ window.GEN_LOOKUP = {
     4: { 
         gen: "generation-iv",
         game: "platinum"
+        //diamond-pearl
+        //heartgold-soulsilver
     },
     5: { 
         gen: "generation-v",
         game: "black-white", 
+        // 
         animated: true 
     },
     // decided against the non sprite generations
