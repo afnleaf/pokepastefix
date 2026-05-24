@@ -517,7 +517,7 @@ async function main(imageQuality, replaceAll, shiny, sprites) {
 
             const isMissing = replacements.has(name);
             if(
-                isMissing ||   // if missing
+                isMissing ||                // if missing
                 replaceAll ||               // or replace all
                 s ||                        // if shiny
                 (g && f !== null)           // or if gen is true
@@ -539,7 +539,7 @@ browser.storage.sync.get({
 }).then(async options => {
     // run script using option values
     //console.log('Retrieved options:', options);
-    /// we should resolve the options here?
+    // we should resolve the options here?
     await main(
         options.imageQuality, 
         options.replaceAll, 
