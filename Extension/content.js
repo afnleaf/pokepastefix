@@ -214,7 +214,7 @@ function getFirstLine(pre) {
 // wrap the pokemon name in <span class="type-X"> if pokepaste didn't
 // pokepaste already styles .type-* classes, so no extra css needed
 function wrapPokemonName(pokemon, type) {
-    console.log(`WRAP: ${pokemon}, ${type}`);
+    //console.log(`WRAP: ${pokemon}, ${type}`);
     // early returns
     // requires a type to add the correct color
     if (!type) return;
