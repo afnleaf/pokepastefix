@@ -1,0 +1,31 @@
+Kyurem-Black @ Choice Band  
+Ability: Teravolt  
+Shiny: Yes  
+- Outrage  
+- Sleep Talk  
+
+Garchomp @ Choice Band  
+Ability: Sand Veil  
+- Outrage  
+- Sleep Talk  
+
+Haxorus @ Life Orb  
+Ability: Rivalry  
+- Outrage  
+
+Kingdra @ Life Orb  
+Ability: Swift Swim  
+IVs: 0 Atk  
+- Draco Meteor  
+
+Latios (M) @ Choice Specs  
+Ability: Levitate  
+IVs: 0 Atk  
+- Draco Meteor  
+
+Dragonite @ Choice Band  
+Ability: Multiscale  
+Shiny: Yes  
+- Outrage  
+- Sleep Talk  
+

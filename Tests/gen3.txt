@@ -1,0 +1,53 @@
+Salamence
+Ability: Intimidate
+EVs: 252 Atk / 4 SpD / 252 Spe
+Adamant Nature
+- Outrage
+- Earthquake
+- Stone Edge
+- Dragon Dance
+
+Metagross
+Ability: Clear Body
+EVs: 252 Atk / 4 SpD / 252 Spe
+Adamant Nature
+- Meteor Mash
+- Earthquake
+- Zen Headbutt
+- Bullet Punch
+
+Kyogre
+Ability: Drizzle
+EVs: 252 SpA / 4 SpD / 252 Spe
+Timid Nature
+- Water Spout
+- Ice Beam
+- Surf
+- Calm Mind
+
+Gardevoir
+Ability: Trace
+EVs: 252 SpA / 4 SpD / 252 Spe
+Timid Nature
+- Psychic
+- Focus Blast
+- Shadow Ball
+- Calm Mind
+
+Blaziken
+Ability: Speed Boost
+EVs: 252 Atk / 4 SpD / 252 Spe
+Adamant Nature
+- Close Combat
+- Stone Edge
+- Earthquake
+- Swords Dance
+
+Breloom
+Ability: Effect Spore
+EVs: 252 Atk / 4 SpD / 252 Spe
+Adamant Nature
+- Close Combat
+- Spore
+- Bullet Seed
+- Stone Edge

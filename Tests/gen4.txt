@@ -1,0 +1,53 @@
+Infernape
+Ability: Blaze
+EVs: 252 Atk / 4 SpA / 252 Spe
+Hasty Nature
+- Close Combat
+- Flare Blitz
+- Stone Edge
+- Mach Punch
+
+Garchomp
+Ability: Rough Skin
+EVs: 252 Atk / 4 SpD / 252 Spe
+Jolly Nature
+- Outrage
+- Earthquake
+- Stone Edge
+- Swords Dance
+
+Crobat
+Ability: Inner Focus
+EVs: 252 Atk / 4 SpD / 252 Spe
+Jolly Nature
+- Cross Poison
+- Sludge Bomb
+- Roost
+- Super Fang
+
+Scizor
+Ability: Technician
+EVs: 252 Atk / 4 SpD / 252 Spe
+Adamant Nature
+- Bullet Punch
+- X-Scissor
+- Superpower
+- Swords Dance
+
+Weavile
+Ability: Pressure
+EVs: 252 Atk / 4 SpD / 252 Spe
+Jolly Nature
+- Ice Punch
+- Low Kick
+- Pursuit
+- Swords Dance
+
+Gliscor
+Ability: Poison Heal
+EVs: 252 Def / 4 SpD / 252 Spe
+Jolly Nature
+- Earthquake
+- Stone Edge
+- Swords Dance
+- Roost

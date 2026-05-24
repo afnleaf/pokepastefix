@@ -1,0 +1,59 @@
+cool guy (Ogerpon-Cornerstone) (F) @ Cornerstone Mask  
+Ability: Sturdy  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Jolly Nature  
+- Power Whip  
+- Ivy Cudgel  
+- Spiky Shield  
+- Follow Me  
+
+Arcanine-Hisui @ Hard Stone  
+Ability: Rock Head  
+Shiny: Yes  
+Tera Type: Fire  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Jolly Nature  
+- Rock Slide  
+- Head Smash  
+- Flare Blitz  
+- Protect  
+
+volc (Volcarona) @ Safety Goggles  
+Ability: Flame Body  
+Shiny: Yes  
+Tera Type: Bug  
+EVs: 252 SpA / 4 SpD / 252 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Rage Powder  
+- Heat Wave  
+- Struggle Bug  
+- Protect  
+
+nickname (Ceruledge) @ Focus Sash  
+Ability: Flash Fire  
+Shiny: Yes  
+Tera Type: Fire  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Adamant Nature  
+- Bitter Blade  
+- Shadow Claw  
+- Shadow Sneak  
+- Swords Dance  
+
+test (Indeedee) (M) @ Life Orb
+Ability: Psychic Surge
+IVs: 0 Atk
+- Expanding Force
+- Dazzling Gleam
+- Trick Room
+- Protect
+
+Archeops (F)
+Ability: Defeatist
+- Acrobatics
+
+buddy (Salamence) (M)
+Ability: Intimidate
+- Outrage
+

@@ -1,0 +1,35 @@
+Alakazam
+- Psychic
+- Focus Blast
+- Shadow Ball
+- Recover
+
+Dragonite
+- Outrage
+- Earthquake
+- Extreme Speed
+- Dragon Dance
+
+Gengar
+- Shadow Ball
+- Focus Blast
+- Sludge Bomb
+- Ice Beam
+
+Machamp
+- Dynamic Punch
+- Stone Edge
+- Ice Punch
+- Earthquake
+
+Starmie
+- Hydro Pump
+- Psychic
+- Ice Beam
+- Recover
+
+Tauros
+- Close Combat
+- Stone Edge
+- Earthquake
+- Wild Charge
