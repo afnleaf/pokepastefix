@@ -2,7 +2,11 @@
   "name": "pokepastefix-tests",
   "version": "1.0.0",
   "type": "module",
+  "scripts": {
+    "test": "node test.js"
+  },
   "devDependencies": {
-    "@playwright/test": "^1.40.0"
+    "@playwright/test": "^1.40.0",
+    "jsdom": "^24.0.0"
   }
 }

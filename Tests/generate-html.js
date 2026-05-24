@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 async function createPaste(testFile, format = null) {
-    const filePath = path.join(__dirname, testFile);
+    const filePath = path.join(__dirname, 'cases', testFile);
 
     if (!fs.existsSync(filePath)) {
         console.error(`File not found: ${filePath}`);
@@ -88,9 +88,10 @@ const formatMap = {
 };
 
 // Get all test files or specific file from command line argument
+const casesDir = path.join(__dirname, 'cases');
 const testFiles = process.argv[2]
     ? [process.argv[2]]
-    : fs.readdirSync(__dirname)
+    : fs.readdirSync(casesDir)
         .filter(f => f.endsWith('.txt'))
         .sort();
 

@@ -111,7 +111,14 @@ function replaceImage(url, backupUrl, imgElement, pokemon_name, quality) {
     imgElement.src = url;
 }
 
-async function replacePokemon(shiny, format, pokemon, pokemon_name, quality) {
+async function replacePokemon(
+    isMissing, 
+    shiny, 
+    format, 
+    pokemon, 
+    pokemon_name, 
+    quality
+) {
     let route = encodeName(pokemon_name);
     //console.log("encoded name: ", route);
     
@@ -147,11 +154,13 @@ async function replacePokemon(shiny, format, pokemon, pokemon_name, quality) {
         pokemon_name,
         quality
     );
-    
-    wrapPokemonName(
-        pokemon, 
-        main.primaryType || backup?.primaryType
-    );
+
+    if (isMissing) {
+        wrapPokemonName(
+            pokemon, 
+            main.primaryType || backup?.primaryType
+        );
+    }   
 }
 
 // find the index where the pokemon name ends so we can apply a type span to it
@@ -506,19 +515,14 @@ async function main(imageQuality, replaceAll, shiny, sprites) {
                 appendItemImage(pokemon, items[item]);
             }
 
-            // handle pokemon replacement if missing
-            // or replace all
-            // also if we have shiny set to true
-            // or if gen is true
-            // this conditional needs to be fixed, even if s is on
-            // why should they all get replaced? this is a bit more complex
+            const isMissing = replacements.has(name);
             if(
-                replacements.has(name) ||
-                replaceAll || 
-                s || 
-                (g && f !== null)
+                isMissing ||   // if missing
+                replaceAll ||               // or replace all
+                s ||                        // if shiny
+                (g && f !== null)           // or if gen is true
             ) {
-                await replacePokemon(s, f, pokemon, name, q);
+                await replacePokemon(isMissing, s, f, pokemon, name, q);
             }
         })
     );
