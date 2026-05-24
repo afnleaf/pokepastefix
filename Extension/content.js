@@ -331,8 +331,8 @@ function encodeName(name) {
 }
 
 // parse --------------------------------------------------------------------- /
-const genderRegex = /\(F\)|\(M\)/gi;
-const nicknameRegex = /\(([^)]+)\)/gi;
+const genderRegex = /\(F\)|\(M\)/i;
+const nicknameRegex = /\(([^)]+)\)/;
 
 function parsePokemonInfo(line) {
     let name = line.trim();
@@ -513,10 +513,10 @@ async function main(imageQuality, replaceAll, shiny, sprites) {
             // this conditional needs to be fixed, even if s is on
             // why should they all get replaced? this is a bit more complex
             if(
-                replacements.has(name) || 
+                replacements.has(name) ||
                 replaceAll || 
                 s || 
-                g
+                (g && f !== null)
             ) {
                 await replacePokemon(s, f, pokemon, name, q);
             }
