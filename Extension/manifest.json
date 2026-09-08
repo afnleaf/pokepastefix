@@ -1,10 +1,13 @@
 {
   "name": "pokepastefix",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "manifest_version": 3,
   "description": "Fix missing pictures on pokepast.es",
   "permissions": [
     "storage"
+  ],
+  "host_permissions": [
+    "https://pokeapi.co/*"
   ],
   "content_scripts": [
     {
@@ -16,6 +19,10 @@
       ]
     }
   ],
+  "background": {
+    "scripts": ["background.js"],
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -29,10 +36,14 @@
     "32": "assets/icons/icon32.png",
     "128": "assets/icons/icon128.png"
   },
+  "minimum_chrome_version": "121.0",
   "browser_specific_settings": {
     "gecko": {
       "id": "{d3f783bc-e653-445e-bc13-2b7f82b22869}",
-      "strict_min_version": "109.0"
+      "strict_min_version": "121.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
     }
   }
 }

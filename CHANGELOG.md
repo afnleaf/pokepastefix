@@ -1,5 +1,9 @@
+## Versions 1.2.1:
+Published 2026 09 08
+Fixed an issue with Firefox content security policy not allowing pokeapi fetches. Shiny mode now defaults to on.
+
 ## Version 1.2.0: The Shiny + Sprites Update
-Published 2026 05 XX
+Published 2026 05 24
 Major image server upgrade: switched main API from https://chiy.uk/ to the more robust https://pokeapi.co/ which enables shinies and gen based sprites. The old image server is now used as a fallback. 
 
 Shiny mode: off, on (default), all. On means that if a pokepaste pokemon contains "Shiny: Yes" in it's text, the extension will swap in the shiny artwork. All replaces every single image with it's shiny art. Off means it doesn't run, the default behavior of pokepaste.

@@ -32,16 +32,18 @@ function resolvePixelSprite(sprites, format, shiny) {
     return node?.[primary] || node?.[secondary] || sprites?.[secondary];
 }
 
-// purely a fetching function for pokeapi
-// we need the full response to access all the art urls and the pokemon type
+// we fetch via background.js because of firefox content security policy
 async function fetchPokeApiData(route) {
-    let apiUrl = `https://pokeapi.co/api/v2/pokemon/${route}`;
-    //console.log(`test: ${route}`);
-    const response = await fetch(apiUrl);
-    if (!response.ok) {
-        throw new Error(`PokeAPI error: ${response.status}`);
-    }
-    return await response.json();
+  const r = await browser.runtime.sendMessage({
+      type: "fetchPokeApiData",
+      route
+  });
+
+  if (r.error) {
+      throw new Error(r.error);
+  }
+
+  return r.data;
 }
 
 // our main API hosted at https://pokeapi.co/
@@ -534,7 +536,7 @@ browser.storage.sync.get({
     // defaults
     imageQuality: 0,
     replaceAll: 0,
-    shiny: 0,
+    shiny: 1,
     sprites: 0,
 }).then(async options => {
     // run script using option values
