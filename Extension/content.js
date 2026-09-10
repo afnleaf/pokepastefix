@@ -285,17 +285,24 @@ function wrapPokemonName(pokemon, type) {
     }
 }
 
+const megaStoneSheetRegex = /\/evoicon\//;
+
 function appendItemImage(pokemon, itemUrl) {
-    // create the image element
     let imgElement = document.createElement('img');
     imgElement.className = 'img-item';
     imgElement.src = `${itemUrl}`;
-    // have to add custom styles to our appended images
-    // the new mega stone art from serebii.net was getting squished
-    imgElement.style.width = 'auto';
-    imgElement.style.height = 'auto';
-    imgElement.style.maxWidth = '40px';
-    imgElement.style.maxHeight = '40px';
+
+    if (megaStoneSheetRegex.test(itemUrl)) {
+        imgElement.style.width = '40px';
+        imgElement.style.height = '40px';
+        imgElement.style.objectFit = 'none';
+        imgElement.style.objectPosition = '0 -40px';
+    } else {
+        imgElement.style.width = 'auto';
+        imgElement.style.height = 'auto';
+        imgElement.style.maxWidth = '40px';
+        imgElement.style.maxHeight = '40px';
+    }
 
     // find the div to append it to
     const imgContainer = pokemon.querySelector("div.img");
