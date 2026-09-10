@@ -19,6 +19,10 @@ async function createPaste(testFile, format = null) {
         content = `Format: ${format}\n\n${content}`;
     }
 
+    // pokepast.es only splits pokemon into separate articles on CRLF
+    // blank lines (as submitted by browser textareas), so normalize
+    content = content.replace(/\r?\n/g, '\r\n');
+
     const params = new URLSearchParams();
     params.append('paste', content);
     params.append('author', 'pokepastefix-test');
