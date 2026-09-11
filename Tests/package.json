@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test": "node test.js"
+    "test": "playwright test --project=offline",
+    "test:live": "playwright test --project=live",
+    "fixtures": "node generate-html.js && node fetch-pokeapi.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.40.0",

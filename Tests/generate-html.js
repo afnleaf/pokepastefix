@@ -12,17 +12,18 @@ async function createPaste(testFile, format = null) {
         process.exit(1);
     }
 
-    let content = fs.readFileSync(filePath, 'utf-8');
-
-    // Prepend format metadata if provided
-    if (format) {
-        content = `Format: ${format}\n\n${content}`;
-    }
+    // pokepast.es only splits pokemon into separate articles on CRLF
+    // blank lines (as submitted by browser textareas), so normalize
+    const content = fs.readFileSync(filePath, 'utf-8').replace(/\r?\n/g, '\r\n');
 
     const params = new URLSearchParams();
     params.append('paste', content);
     params.append('author', 'pokepastefix-test');
     params.append('title', testFile.replace('.txt', ''));
+    // users put "Format: gen9ou" in notes; pokepast.es renders notes in the aside
+    if (format) {
+        params.append('notes', `Format: ${format}`);
+    }
 
     try {
         console.log(`Creating paste from ${testFile}...`);
@@ -51,14 +52,7 @@ async function createPaste(testFile, format = null) {
 
         // Download the HTML of the paste
         const htmlResponse = await fetch(pasteUrl);
-        let html = await htmlResponse.text();
-
-        // Inject format into aside if provided
-        if (format) {
-            const formatLabel = format.replace(/([a-z])([A-Z])/g, '$1 $2').toUpperCase();
-            const asideInject = `<p>Format: ${formatLabel}</p>`;
-            html = html.replace('</aside>', `${asideInject}\n\t\t</aside>`);
-        }
+        const html = await htmlResponse.text();
 
         // Save HTML to file
         const htmlDir = path.join(__dirname, 'html');

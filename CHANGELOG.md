@@ -1,3 +1,7 @@
+## Versions 1.2.2:
+Published 09 12
+Fixed megastone images.
+
 ## Versions 1.2.1:
 Published 2026 09 08
 Fixed an issue with Firefox content security policy not allowing pokeapi fetches. Shiny mode now defaults to on.

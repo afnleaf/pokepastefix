@@ -28,7 +28,7 @@ Ampharos
 - Signal Beam
 - Focus Blast
 
-Azmarill
+Azumarill
 - Waterfall
 - Aqua Jet
 - Play Rough

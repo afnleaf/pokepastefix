@@ -1,0 +1,88 @@
+@import url('fonts.css');
+@import url('syntax.css');
+
+body {
+	margin: 0;
+	background-color: black;
+	color: white;
+	font: 12px "M+ 1c", sans-serif;
+}
+
+article {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: flex-start;
+}
+
+div.img {
+	position: relative;
+	margin: 15px;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+img.img-pokemon {
+	width: 150px;
+	height: 150px;
+}
+
+img.img-item {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+}
+
+pre {
+	margin: 15px 15px 0;
+	font: 15px "M+ 1m", monospace;
+	white-space: pre-wrap;
+}
+
+aside {
+	position: fixed;
+	top: 0;
+	right: 0;
+	max-width: 300px;
+	margin: 15px;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+@media (max-width: 750px) {
+	aside {
+		display: none;
+	}
+}
+
+h1 { font-size: x-large }
+
+h2 { font-size: larger }
+
+aside > button {
+	margin: 0 12px;
+	border: 0;
+	background-color: inherit;
+	color: inherit;
+	font: inherit;
+}
+
+aside input[type=checkbox] {
+	display: none;
+}
+
+aside input[type=checkbox] + label:after {
+	font: inherit;
+	color: #FF0000;
+	content: " Off";
+}
+
+aside input[type=checkbox]:checked + label:after {
+	color: #78C850;
+	content: " On";
+}
