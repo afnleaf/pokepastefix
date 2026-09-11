@@ -292,10 +292,10 @@ function appendItemImage(pokemon, itemUrl) {
     imgElement.src = `${itemUrl}`;
     // have to add custom styles to our appended images
     // the new mega stone art from serebii.net was getting squished
-    imgElement.style.width = 'auto';
-    imgElement.style.height = 'auto';
-    imgElement.style.maxWidth = '40px';
-    imgElement.style.maxHeight = '40px';
+    //imgElement.style.width = 'auto';
+    //imgElement.style.height = 'auto';
+    //imgElement.style.maxWidth = '40px';
+    //imgElement.style.maxHeight = '40px';
 
     // find the div to append it to
     const imgContainer = pokemon.querySelector("div.img");
