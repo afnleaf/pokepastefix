@@ -24,7 +24,6 @@ async function fetchPokeApiData(route) {
     if (!response.ok) {
         throw new Error(`PokeAPI error: ${response.status}`);
     }
-    //return await response.json();
     return response.json();
 }
 

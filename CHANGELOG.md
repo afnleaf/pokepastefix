@@ -1,5 +1,8 @@
+## Versions 1.2.3:
+Add noreferrer to item images.
+
 ## Versions 1.2.2:
-Published 09 12
+Published 2026 09 12
 Fixed megastone images.
 
 ## Versions 1.2.1:
