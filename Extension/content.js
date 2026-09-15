@@ -1,6 +1,7 @@
 // content.js
 // the main extension script
 // our data.js is set to window global mode cause we don't want to use modules
+// replacements, badnames, missingPokeApi, items, GEN_LOOKUP
 
 // API ----------------------------------------------------------------------- /
 // https://pokeapi.co/api/v2/pokemon/1/ is a good example of the full response
@@ -285,19 +286,21 @@ function wrapPokemonName(pokemon, type) {
   }
 }
 
-function appendItemImage(pokemon, itemUrl) {
+function appendItemImage(pokemon, itemKey) {
+  // use third party servers as primary
+  let itemUrl = items[itemKey]; 
   // create the image element
   let imgElement = document.createElement('img');
   imgElement.className = 'img-item';
   // needed to protect from 403 errors
   imgElement.referrerPolicy = 'no-referrer';
+  // set backup callback
+  imgElement.onerror = () => {
+    if (!imgElement.src.includes('chiy.uk')) {
+      imgElement.src = `https://chiy.uk/items/${itemKey}`;
+    }
+  }
   imgElement.src = `${itemUrl}`;
-  // have to add custom styles to our appended images
-  // the new mega stone art from serebii.net was getting squished
-  //imgElement.style.width = 'auto';
-  //imgElement.style.height = 'auto';
-  //imgElement.style.maxWidth = '40px';
-  //imgElement.style.maxHeight = '40px';
 
   // find the div to append it to
   const imgContainer = pokemon.querySelector("div.img");
@@ -516,7 +519,7 @@ async function main(imageQuality, replaceAll, shiny, sprites) {
 
       // handle item image if it is missing
       if(item && items[item]) {
-        appendItemImage(pokemon, items[item]);
+        appendItemImage(pokemon, item);
       }
 
       const isMissing = replacements.has(name);

@@ -1,5 +1,6 @@
 ## Versions 1.2.3:
-Add noreferrer to item images.
+Published 2026 09 16
+Add noreferrer to item images. Add item images as backup to https://chiy.uk/
 
 ## Versions 1.2.2:
 Published 2026 09 12
