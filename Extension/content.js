@@ -288,19 +288,22 @@ function wrapPokemonName(pokemon, type) {
 
 function appendItemImage(pokemon, itemKey) {
   // use third party servers as primary
-  let itemUrl = items[itemKey]; 
+  //let itemUrl = items[itemKey]; 
+  // needed to protect from 403 errors
+  //imgElement.referrerPolicy = 'no-referrer';
+  // set backup callback, we set chiyuk as primary
+  //imgElement.onerror = () => {
+  //  if (!imgElement.src.includes('chiy.uk')) {
+  //    console.log(`fallback: ${itemKey} chiy.uk/items/${encodeName(itemKey)}`);
+  //    imgElement.src = `https://chiy.uk/items/${encodeName(itemKey)}`;
+  //  }
+  //}
+  //imgElement.src = `${itemUrl}`;
+
   // create the image element
   let imgElement = document.createElement('img');
   imgElement.className = 'img-item';
-  // needed to protect from 403 errors
-  imgElement.referrerPolicy = 'no-referrer';
-  // set backup callback
-  imgElement.onerror = () => {
-    if (!imgElement.src.includes('chiy.uk')) {
-      imgElement.src = `https://chiy.uk/items/${itemKey}`;
-    }
-  }
-  imgElement.src = `${itemUrl}`;
+  imgElement.src = `https://chiy.uk/items/${encodeName(itemKey)}`;
 
   // find the div to append it to
   const imgContainer = pokemon.querySelector("div.img");

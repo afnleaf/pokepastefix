@@ -192,16 +192,18 @@ test.describe('wrapPokemonName', () => {
 
 test.describe('appendItemImage', () => {
     test('appends img.img-item with correct src', async ({ page }) => {
-        const html = article('Garchomp @ Life Orb\nAbility: Rough Skin');
+        const html = article('Ogerpon @ Cornerstone Mask\nAbility: Water Absorb');
         await installExtension(page, { html });
         const result = await page.evaluate(() => {
             const art = document.querySelector('article');
-            window.ext.appendItemImage(art, 'https://example.com/item.png');
-            const img = art.querySelector('.img-item');
-            return { src: img?.getAttribute('src'), cls: img?.className };
+            window.ext.appendItemImage(art, 'cornerstone mask');
+            const img = art.querySelector('div.img > .img-item');
+            const totalImgs = art.querySelectorAll('.img-item').length;
+            return { src: img?.getAttribute('src'), cls: img?.className, count: totalImgs };
         });
-        expect(result.src).toBe('https://example.com/item.png');
+        expect(result.src).toBe('https://chiy.uk/items/cornerstone-mask');
         expect(result.cls).toBe('img-item');
+        expect(result.count).toBe(1);
     });
 
     test('no div.img -- nothing appended, no throw', async ({ page }) => {
@@ -210,7 +212,7 @@ test.describe('appendItemImage', () => {
         const result = await page.evaluate(() => {
             try {
                 const art = document.querySelector('article');
-                window.ext.appendItemImage(art, 'https://example.com/item.png');
+                window.ext.appendItemImage(art, 'cornerstone mask');
                 return { threw: false, imgCount: art.querySelectorAll('.img-item').length };
             } catch { return { threw: true, imgCount: 0 }; }
         });

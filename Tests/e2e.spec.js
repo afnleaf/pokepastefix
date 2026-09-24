@@ -60,8 +60,7 @@ test.describe('edgecase.html', () => {
             { type: 'grass', text: 'Ogerpon-Cornerstone' },
         ]);
         expect(states[0].items).toEqual([
-            'https://www.serebii.net/itemdex/sprites/'
-            + 'sv/cornerstonemask.png',
+            'https://chiy.uk/items/cornerstone-mask',
         ]);
 
         // article.innerText only yields the set line here when
@@ -409,11 +408,9 @@ test.describe('item images', () => {
             const states = await articleStates(page);
 
             // Ogerpon: Cornerstone Mask is in items
-            expect(states[0].items).toContain(
-                'https://www.serebii.net/itemdex/sprites/'
-                + 'sv/cornerstonemask.png'
-            );
-
+            expect(states[0].items).toEqual([
+                'https://chiy.uk/items/cornerstone-mask',
+            ]);
             // Arcanine-Hisui: Hard Stone not in items,
             // pokepaste already had an img-item
             expect(states[1].items).toEqual([
@@ -458,8 +455,13 @@ test.describe('item images', () => {
                     item = firstLine.split('@')[1].trim();
                 }
                 if (item && itemsMap[item]) {
-                    // appendItemImage runs unconditionally
-                    expect(s.items).toContain(itemsMap[item]);
+                    const expectedRoute = await page.evaluate(
+                        (it) => window.ext.encodeName(it),
+                        item
+                    );
+                    expect(s.items).toEqual([
+                        `https://chiy.uk/items/${expectedRoute}`,
+                    ]);
                 }
             }
         },
