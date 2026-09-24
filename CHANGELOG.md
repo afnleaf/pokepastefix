@@ -1,12 +1,16 @@
-## Versions 1.2.3:
+## Version 1.2.4:
+Published 2026 09 24
+Set https://chiy.uk as primary item image server.
+
+## Version 1.2.3:
 Published 2026 09 16
 Add noreferrer to item images. Add item images as backup to https://chiy.uk/
 
-## Versions 1.2.2:
+## Version 1.2.2:
 Published 2026 09 12
 Fixed megastone images.
 
-## Versions 1.2.1:
+## Version 1.2.1:
 Published 2026 09 08
 Fixed an issue with Firefox content security policy not allowing pokeapi fetches. Shiny mode now defaults to on.
 
